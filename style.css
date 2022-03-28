@@ -1,0 +1,222 @@
+body, html {
+    height: 100%;
+    width: 100%;
+  }
+
+input[type=text], [type=password], [type=date], [type=file], textarea, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  #signupbtn{
+    position: inherit;
+    left: 1100px;
+    top: 100px;
+    background-color: grey; 
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 50%;
+    font-size: 24px;
+  }
+
+  #signupbtn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: yellow;
+  }
+
+  #loginbtn{
+    position: inherit;
+    left: 880px;
+    top: 100px;
+    background-color: grey; 
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 50%;
+    font-size: 24px;
+  }
+
+  #loginbtn:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    background-color: yellow;
+  }
+  
+  
+  #submitbtn {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  #submitbtn:hover {
+    background-color: #45a049;
+  }
+
+  #cancelbtn {
+    width: 100%;
+    background-color: rgb(173, 51, 51);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #cancelbtn:hover {
+    background-color: rgb(105, 27, 27);
+  }
+  
+  #form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  #return:hover{
+    color: rgb(122, 9, 9);
+  }
+
+  #header{
+      font-size: 30px;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    float: left;
+  }
+
+  #logout{
+      float: right;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+  }
+
+  #img{
+      max-width: 200px;
+      max-height: 200px;
+  }
+
+  #bgimg {
+    background-image: url("upload/auction.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+  #table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #table td, #table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  #table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #table tr:hover {background-color: #ddd;}
+  
+  #table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #ffd104;
+    color: black;
+  }
+
+  #imgt, #itemt, #pricet, #statust, #actiont{
+    width: 20%;
+  }
+
+  #title{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+  }
+
+  #titletext {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+
+#bidbtn{
+    width: 100%;
+    background-color: rgb(53, 162, 212);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #bidbtn:hover {
+    background-color: rgb(7, 135, 158);
+}
+
+#profileimgdisplay{
+  display: block;
+  width: 60%;
+  margin: 10px auto;
+  border-radius: 50%;
+  max-width: 200px;
+  max-height: 200px;
+}
+
