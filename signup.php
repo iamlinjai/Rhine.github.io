@@ -41,7 +41,7 @@ if (isset($_POST['login'])) {
 
     <br>
 
-    <label id="header">Sign Up</label>
+    <label id="header">SignUp</label>
 
     <form id="form" method="post">
         <input type="text" name="userid" placeholder="LoginID...">
