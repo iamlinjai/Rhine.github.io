@@ -26,6 +26,19 @@ if (isset($_POST['login'])) {
 
 ?>
 
+<!--Show password function-->
+<script>
+    function showPassword() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,25 +52,53 @@ if (isset($_POST['login'])) {
 
 <body>
 
-    <br>
+        <!--signup form-->
+        <form id="signup-form" method="post">
+            <label id="header">Create an account</label>
 
-    <label id="header">SignUp</label>
+            <br><br>
 
-    <form id="form" method="post">
-        <input type="text" name="userid" placeholder="LoginID...">
-        <br>
+            <label>Username:</label>
+            <input type="text" name="userid" placeholder="eg. abc123" required>
 
-        <input type="text" name="email" placeholder="Email...">
-        <br>
-        <input type="text" name="username" placeholder="Nick Name...">
-        <br>
-        <input type="password" name="pw" placeholder="Password...">
-        <br>
-        <button type="submit" id="submitbtn" value="Signup">SIGN UP</button>
-        <br>
-        <a id="return" href="login.php">Alreay have a account ?</a> 
+            <br><br>
 
-    </form>
+            <label>Email:</label>
+            <input type="text" name="email" placeholder="eg. abc123@example.com" required>
+
+            <br><br>
+
+            <label>Password:</label>
+            <input id="password" type="password" name="pw" placeholder="Password" required>
+            <br>
+            <input type="checkbox" onclick="showPassword()"><label>Show Password</label>
+
+            <br><br>
+
+            <label>Confirm password:</label>
+            <input type="password" name="repeat-pw" placeholder="Confirm password" required>
+
+            <br><br>
+
+            <label>Phone:</label>
+            <br>
+            <input type="tel" name="phone" placeholder="2333 0600" required>
+
+            <br><br>
+
+            <label>Address:</label>
+            <br>
+            <input type="text" name="address" placeholder="Building" required>
+
+            <br>
+
+            <button type="submit" id="submitbtn" value="Signup">Create Account</button>
+
+            <br>
+
+            <label>Already signup? <a id="return" href="login.php">Login here</a></label>
+
+        </form>
+
 </body>
-
 </html>

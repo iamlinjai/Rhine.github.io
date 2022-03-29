@@ -23,25 +23,40 @@ if (isset($_POST['submit'])) {
                 if ($user_data['pw'] === $password) {
 
                     $_SESSION["userid"] = $user_data['userid'];
-                    
-                        setcookie('userid', $_SESSION["userid"], time()+3600);
-                    
-                        header('Location:index.php');
-                        die;
-                    }
+
+                    setcookie('userid', $_SESSION["userid"], time() + 3600);
+
+                    header('Location:index.php');
+                    die;
                 }
             }
         }
-    } 
-
-    if(isset($_POST['signup'])){
-        header('Location:signup.php');
     }
+}
+
+if (isset($_POST['signup'])) {
+    header('Location:signup.php');
+}
 
 ?>
 
+
+<!--Show password function-->
+<script>
+    function showPassword() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,26 +64,30 @@ if (isset($_POST['submit'])) {
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <br>
-    
-<label id="header">LogIn</label>
+    <form id="login-form" action="" method="POST">
+        <label id="header">Sign in</label>
 
-<form id="form" action="" method="POST">
-    <input type="text" name="userid" placeholder="User ID..">
+        <br><br>
+        <label>User ID:</label>
+        <br>
+        <input type="text" name="userid" placeholder="User ID">
 
-    <br><br>
+        <br><br>
 
-    <input type="password" name="pw" placeholder="Password..">
+        <label>Password:</label>
+        <input id="password" type="password" name="pw" placeholder="Password">
+        <input type="checkbox" onclick="showPassword()"><label>Show Password</label>
 
-    <br><br>
+        <br><br>
 
-    <button type="submit" id="submitbtn" name="submit">LOGIN</button>
+        <button type="submit" id="submitbtn" name="submit">Sign In</button>
 
-    <a id="return" href="signup.php">Do not have account ?</a>
+        <label>New to here? <a id="return" href="signup.php">Create an account</a></label>
 
-</form>
+    </form>
 </body>
-</html>
 
+</html>

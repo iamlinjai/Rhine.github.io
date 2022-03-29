@@ -1,9 +1,4 @@
-body, html {
-    height: 100%;
-    width: 100%;
-  }
-
-input[type=text], [type=password], [type=date], [type=file], textarea, select {
+input[type=text], [type=password], [type=date], [type=file], [type=tel], textarea, select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -68,7 +63,7 @@ input[type=text], [type=password], [type=date], [type=file], textarea, select {
   
   #submitbtn {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #1c33fdda;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -78,7 +73,7 @@ input[type=text], [type=password], [type=date], [type=file], textarea, select {
   }
   
   #submitbtn:hover {
-    background-color: #45a049;
+    background-color: #1c85fdda;
   }
 
   #cancelbtn {
@@ -96,14 +91,39 @@ input[type=text], [type=password], [type=date], [type=file], textarea, select {
     background-color: rgb(105, 27, 27);
   }
   
+  #signup-form {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    width: 40%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  #login-form {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    width: 40%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
   #form {
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
   }
 
+  #return{
+    text-decoration: none;
+  }
+
   #return:hover{
     color: rgb(122, 9, 9);
+    text-decoration: underline;
   }
 
   #header{
@@ -144,11 +164,9 @@ input[type=text], [type=password], [type=date], [type=file], textarea, select {
   }
 
   #bgimg {
-    background-image: url("upload/auction.png");
+    background-image: url("upload/cover.jpg");
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    width: 100%;
 }
 
   #table {

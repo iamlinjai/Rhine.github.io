@@ -10,14 +10,12 @@
 </head>
 
 <body>
-    <div id="bgimg">
-        <div id="title">
-            <span id="titletext">Online Auction System</span>
 
-            <button id="signupbtn" onclick="location.href='signup.php'">Sign Up</button>
-            <button id="loginbtn" onclick="location.href='login.php'">Log In</button>
-        </div>
-    </div>
+    <div id="bgimg">
+            <label id="titletext">Online Market Place</label>
+
+        <button id="signupbtn" onclick="location.href='signup.php'">Sign Up</button>
+        <button id="loginbtn" onclick="location.href='login.php'">Sign in</button>
     </div>
 </body>
 
