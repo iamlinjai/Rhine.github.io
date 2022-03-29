@@ -163,10 +163,12 @@ input[type=text], [type=password], [type=date], [type=file], [type=tel], textare
       max-height: 200px;
   }
 
-  #bgimg {
-    background-image: url("upload/cover.jpg");
-    height: 100%;
-    width: 100%;
+  #cover-page {
+    border: 2px solid black;
+    padding: 25px;
+    background: url(upload/cover.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
   #table {
