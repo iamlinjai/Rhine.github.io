@@ -53,7 +53,7 @@ if (isset($_POST['login'])) {
 <body>
 
         <!--signup form-->
-        <form id="signup-form" method="post">
+        <form id="form" method="post">
             <label id="header">Create an account</label>
 
             <br><br>

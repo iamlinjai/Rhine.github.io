@@ -8,6 +8,16 @@ input[type=text], [type=password], [type=date], [type=file], [type=tel], textare
     box-sizing: border-box;
   }
 
+  #input-value{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
   #signupbtn{
     position: inherit;
     left: 1100px;
@@ -90,28 +100,12 @@ input[type=text], [type=password], [type=date], [type=file], [type=tel], textare
   #cancelbtn:hover {
     background-color: rgb(105, 27, 27);
   }
-  
-  #signup-form {
-    position: absolute;
-    top: 10%;
-    left: 30%;
-    width: 40%;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
-
-  #login-form {
-    position: absolute;
-    top: 10%;
-    left: 30%;
-    width: 40%;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
 
   #form {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    width: 40%;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
@@ -239,4 +233,3 @@ input[type=text], [type=password], [type=date], [type=file], [type=tel], textare
   max-width: 200px;
   max-height: 200px;
 }
-

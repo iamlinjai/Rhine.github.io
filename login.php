@@ -67,7 +67,7 @@ if (isset($_POST['signup'])) {
 
 <body>
 
-    <form id="login-form" action="" method="POST">
+    <form id="form" action="" method="POST">
         <label id="header">Sign in</label>
 
         <br><br>

@@ -46,42 +46,45 @@ if (isset($_POST['post'])) {
 </head>
 
 <body>
-    <br>
-    <label id="header">Add Post</label>
-        <br><br>
 
     <form id="form" action="addpost.php" method="post" enctype="multipart/form-data">
+        <label id="header">Sell your items</label>
+
+        <br><br>
 
         <label id="itemname">Item Name:</label>
         <br>
-        <input type="text" id="itemname" name="title" placeholder="Name of Item.." required>
+        <input type="text" id="itemname" name="title" placeholder="eg. phone" required>
 
         <br><br>
 
         <label id="price">Price:</label>
         <br>
-        <input type="text" id="price" name="price" placeholder="Price..." required>
+        <input type="text" id="price" name="price" placeholder="eg. $100" required>
 
         <br><br>
 
-        <label>End of Bidding Date: </label>
+        <label>End of date: </label>
         <br>
-        <input type="date" id="date" name="end_date" value="2021-01-01">
+        <input type="date" id="date" name="end_date" value="2021-01-01" required>
 
         <br><br>
 
-        <label>Gives some description for the item: </label>
+        <label>Description: </label>
         <br>
-        <textarea name="item_desc" placeholder="Description..."></textarea>
+        <textarea name="item_desc" placeholder="Gives some description for your item"></textarea>
+
         <br><br>
 
-        <label>Please insert the item image: </label>
+        <label>Your item image: </label>
         <br>
         <input type="file" id="image" name="item_img" accept="image/png, image/jpeg" required>
 
-        <br><br>
+        <br>
 
         <input id="submitbtn" type="submit" name="post" value="Post">
+
+        <a id="return" href="index.php">Back to home page</a>
 
         <p id="forfunction"></p>
 
@@ -91,8 +94,8 @@ if (isset($_POST['post'])) {
                 document.getElementById("forfunction").innerHTML = x;
             }
         </script>
+
         
-        <a id="return" href="index.php">Cancel</a>
 
     </form>
 </body>
