@@ -35,6 +35,19 @@
 
   /*button*/
 
+  #mypostbtn{
+      width: 330px;
+      background-color: #f2f2f2;
+      border: none;
+      text-align: left;
+    }
+    
+    #mypostbtn:hover{
+      background-color: #f2f2f2;
+      box-shadow: 5px 5px 5px 5px gray;
+      border: 1px;
+  }
+
   #signupbtn{
     position: inherit;
     left: 1100px;
@@ -185,7 +198,6 @@
   
   #table tr:nth-child(even){background-color: #f2f2f2;}
   
-  #table tr:hover {background-color: #ddd;}
 
   /*ul ol li*/
 
@@ -225,6 +237,8 @@
     max-width: 300px;
     min-width: 200px;
     min-height: 200px;
+    display: block;
+    margin: auto;
   }
 
   #profileimgdisplay{
@@ -243,6 +257,8 @@
     margin: auto;
   }
 
+
+  /*text*/
   #timeleft{
     padding-top: 12px;
     padding-bottom: 12px;
@@ -274,4 +290,22 @@
 #profile-userid{
   text-align: center;
   color: gray;
+}
+
+#selling{
+  text-align: center;
+  background-color: rgba(252, 85, 85, 0.993);
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+#sold{
+  text-align: center;
+  background-color: rgba(147, 255, 85, 0.877);
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+#display-price{
+  font-weight: bold;
 }
