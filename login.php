@@ -40,20 +40,6 @@ if (isset($_POST['signup'])) {
 
 ?>
 
-
-<!--Show password function-->
-<script>
-    function showPassword() {
-        var x = document.getElementById("password");
-        if (x.type === "password") {
-            x.type = "text";
-        } else {
-            x.type = "password";
-        }
-    }
-</script>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,6 +49,7 @@ if (isset($_POST['signup'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -71,17 +58,16 @@ if (isset($_POST['signup'])) {
         <label id="header">Sign in</label>
 
         <br><br>
-        <label>User ID:</label>
-        <br>
-        <input type="text" name="userid" placeholder="User ID">
 
-        <br><br>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid">
+            <label for="floatingInput">Login ID</label>
+        </div>
 
-        <label>Password:</label>
-        <input id="password" type="password" name="pw" placeholder="Password">
-        <input type="checkbox" onclick="showPassword()"><label>Show Password</label>
-
-        <br><br>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="pw">
+            <label for="floatingInput">Password</label>
+        </div>
 
         <button type="submit" id="submitbtn" name="submit">Sign In</button>
 

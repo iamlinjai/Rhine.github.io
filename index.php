@@ -19,6 +19,7 @@ include 'connection.php';
 </head>
 
 <body>
+    <div class="content">
     <br>
     <label id="header">Current Auction</label>
     <table id="table" style="width: 100%;">
@@ -76,6 +77,7 @@ include 'connection.php';
             }
         }
         ?>
+        </div>
 </body>
 
 </html>

@@ -43,6 +43,7 @@ if (isset($_POST['post'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Post</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -52,33 +53,34 @@ if (isset($_POST['post'])) {
 
         <br><br>
 
-        <label id="itemname">Item Name:</label>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Mobile phone" name="title">
+            <label for="floatingInput">Item name</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="$ 100" name="price">
+            <label for="floatingInput">Price</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="floatingInput" value="DD/MM/YYYY" name="end_date">
+            <label for="floatingInput">End of Date</label>
+        </div>
+
         <br>
-        <input type="text" id="itemname" name="title" placeholder="eg. phone" required>
 
-        <br><br>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Gives some description for your item" id="floatingTextarea2" style="height: 100px" name="item_desc"></textarea>
+            <label for="floatingTextarea2">Description</label>
+        </div>
 
-        <label id="price">Price:</label>
         <br>
-        <input type="text" id="price" name="price" placeholder="eg. $100" required>
 
-        <br><br>
-
-        <label>End of date: </label>
-        <br>
-        <input type="date" id="date" name="end_date" value="2021-01-01" required>
-
-        <br><br>
-
-        <label>Description: </label>
-        <br>
-        <textarea name="item_desc" placeholder="Gives some description for your item"></textarea>
-
-        <br><br>
-
-        <label>Your item image: </label>
-        <br>
-        <input type="file" id="image" name="item_img" accept="image/png, image/jpeg" required>
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Item image: </label>
+            <input class="form-control" type="file" id="formFile" name="item_img" accept="image/png, image/jpeg">
+        </div>
 
         <br>
 
@@ -95,7 +97,7 @@ if (isset($_POST['post'])) {
             }
         </script>
 
-        
+
 
     </form>
 </body>

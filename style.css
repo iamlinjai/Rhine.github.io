@@ -1,4 +1,4 @@
-input[type=text], [type=password], [type=date], [type=file], [type=tel], textarea, select {
+/*input[type=text], [type=password], [type=date], [type=file], [type=tel], textarea, select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -6,16 +6,16 @@ input[type=text], [type=password], [type=date], [type=file], [type=tel], textare
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-  }
+  }*/
 
-  #input-value{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+  .content{
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 70%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
   }
 
   #signupbtn{

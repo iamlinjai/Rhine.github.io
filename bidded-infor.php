@@ -39,6 +39,44 @@ if (mysqli_num_rows($result) > 0) {
             <table id="table">
 
                 <tr>
+                    <th colspan="3">Selling</th>
+                </tr>
+
+                <tr>
+                </tr>
+
+                <tr>
+                    <td colspan="3"><img src="upload/car.jpg" alt="Car" id="img"></td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">Title: </td>
+                </tr>
+
+                <tr>
+                    <td>Car</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">Description: </td>
+                </tr>
+
+                <tr>
+                    <td>It is car!</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">Price: </td>
+                </tr>
+
+                <tr>
+                    <td>$ 100</td>
+                </tr>
+
+
+
+                <!--
+                <tr>
                     <th colspan="3">
                         <?php echo $row['item_status']; ?>
                     </th>
@@ -74,7 +112,7 @@ if (mysqli_num_rows($result) > 0) {
                 <tr>
                     <td>$ <?php echo $row['price']; ?></td>
                 </tr>
-
+    -->
         <?php
     }
 } else {
