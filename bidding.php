@@ -66,42 +66,44 @@ if (mysqli_num_rows($result) > 0) {
 
         <body>
 
-            <h2>Post Information</h2>
+            <div class="content">
+                <h2>Post Information</h2>
 
+                <Table>
+                    <tr>
+                        <th colspan="3">Details</th>
+                    </tr>
 
-            <Table>
-                <tr>
-                    <th colspan="3">Details</th>
-                </tr>
+                    <tr>
+                        <th colspan="3">Time Left:- <p style="font-size:2em;" id="timer"></p>
+                        </th>
+                    </tr>
 
-                <tr>
-                    <th colspan="3">Time Left:- <p style="font-size:2em;" id="timer"></p></th>
-                </tr>
+                    <tr>
+                        <td colspan="3">End Date: <?php echo $row['end_date']; ?></td>
+                    </tr>
 
-                <tr>
-                    <td colspan="3">End Date: <?php echo $row['end_date']; ?></td>
-                </tr>
+                    <tr>
+                        <td><img src="upload/<?php echo $row['item_img']; ?>" alt="<?php echo $row['item_title']; ?>" id="img"></td>
+                    </tr>
 
-                <tr>
-                    <td><img src="upload/<?php echo $row['item_img']; ?>" alt="<?php echo $row['item_title']; ?>" id="img"></td>
-                </tr>
+                    <tr>
+                        <form method="post">
 
-                <tr>
-                    <form method="post">
+                            <input type="text" id="price" name="price" placeholder="Price..." required>
 
-                        <input type="text" id="price" name="price" placeholder="Price..." required>
+                            <td><a href="submit"><button type="button" id="bidamount">Bid Now</button></a></td>
+                        </form>
+                    </tr>
 
-                        <td><a href="submit"><button type="button" id="bidamount">Bid Now</button></a></td>
-                    </form>
-                </tr>
-
-        <?php
+            <?php
+        }
+    } else {
+        echo 'Not Found !';
     }
-} else {
-    echo 'Not Found !';
-}
-        ?>
-            </Table>
+            ?>
+                </Table>
+            </div>
         </body>
 
         </html>

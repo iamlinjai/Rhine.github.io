@@ -20,16 +20,9 @@ include 'connection.php';
 
 <body>
     <div class="content">
-    <br>
-    <label id="header">Current Auction</label>
-    <table id="table" style="width: 100%;">
-        <tr>
-            <th id="imgt">Image</th>
-            <th id="itemt">Item</th>
-            <th id="pricet">Price</th>
-            <th id="statust">Status</th>
-            <th id="actiont"></th>
-        </tr>
+        <br>
+        <label id="header">Current Auction</label>
+        <br><br>
 
         <?php
         $sql = "SELECT * FROM item WHERE userid !='" . $_SESSION['userid'] . "' AND item_status = 'Bidding' ";
@@ -40,6 +33,50 @@ include 'connection.php';
             while ($row = mysqli_fetch_assoc($result)) {
         ?>
 
+<!-----------------------------------------------------------Test Code---------------------------------------->
+                <a href="login.php"><button type="button" id="displaybtn">
+                        <table id="selling-display">
+
+                            <tr>
+                                <td><img src="upload/building.jpg" id="smallimg"></td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>house</td>
+                            </tr>
+
+                            <tr>
+                                <td>$ 1000</td>
+                            </tr>
+
+                        </table>
+                    </button></a>
+
+        <?php
+            }
+        }
+        ?>
+    </div>
+</body>
+
+</html>
+
+
+<!------------------------------------------------------------------------Back Up Code-------------------------------------------------------------------------------->
+
+<!--
+<?php
+$sql = "SELECT * FROM item WHERE userid !='" . $_SESSION['userid'] . "' AND item_status = 'Bidding' ";
+
+$result = mysqli_query($connect, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+?>
 
                 <table id="table" style="width: 100%;">
                     <tr>
@@ -74,10 +111,7 @@ include 'connection.php';
                 </table>
 
         <?php
-            }
-        }
+    }
+}
         ?>
-        </div>
-</body>
-
-</html>
+-->

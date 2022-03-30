@@ -53,67 +53,66 @@ if (mysqli_num_rows($result) > 0) {
         </script>
 
         <body>
+            <div class="content">
+                <table id="table">
 
-            <br>
+                <!--Display photos-->
+                    <tr>
+                        <td colspan="3"><img src="upload/car.jpg" alt="car" id="img"></p>
+                        </td>
+                    </tr>
 
-            <label id="header">Details</label>
+                    <!--
+                    <tr>
+                        <td colspan="3"><img src="upload/<?php echo $row['item_img']; ?>" alt="<?php echo $row['item_title']; ?>" id="img"></td>
+                    </tr>-->
 
 
-            <table id="table">
+                    <!--Display Time left / End of date-->
+                    <tr>
+                        <td id="timeleft" colspan="3">Close date: <?php echo $row['end_date']; ?>
+                            <p style="font-size:1em;" id="timer"></p>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <th colspan="3">Time Left:- <p style="font-size:2em;" id="timer"></p>
-                    </th>
-                </tr>
+                    <!--Display Item title-->
+                    <tr>
+                        <td colspan="3">Mobile Phone<?php echo $row['item_title']; ?></td>
+                    </tr>
 
-                <tr>
-                    <td colspan="3">End Date: <?php echo $row['end_date']; ?></td>
-                </tr>
+                    <tr>
+                        <td colspan="3">Description: </td>
+                    </tr>
 
-                <tr>
-                    <td colspan="3"><img src="upload/<?php echo $row['item_img']; ?>" alt="<?php echo $row['item_title']; ?>" id="img"></td>
-                </tr>
+                    <tr>
+                        <td><?php echo $row['item_desc']; ?></td>
+                    </tr>
 
-                <tr>
-                    <td colspan="3">Title: </td>
-                </tr>
+                    <tr>
+                        <td colspan="3">Price: </td>
+                    </tr>
 
-                <tr>
-                    <td><?php echo $row['item_title']; ?></td>
-                </tr>
+                    <tr>
+                        <td>$ <?php echo $row['price']; ?></td>
+                    </tr>
 
-                <tr>
-                    <td colspan="3">Description: </td>
-                </tr>
+                    <tr>
+                        <td colspan="3">Status: </td>
+                    </tr>
 
-                <tr>
-                    <td><?php echo $row['item_desc']; ?></td>
-                </tr>
+                    <tr>
+                        <td><?php echo $row['item_status']; ?></td>
+                    </tr>
 
-                <tr>
-                    <td colspan="3">Price: </td>
-                </tr>
-
-                <tr>
-                    <td>$ <?php echo $row['price']; ?></td>
-                </tr>
-
-                <tr>
-                    <td colspan="3">Status: </td>
-                </tr>
-
-                <tr>
-                    <td><?php echo $row['item_status']; ?></td>
-                </tr>
-
-        <?php
+            <?php
+        }
+    } else {
+        echo 'Not Found !';
     }
-} else {
-    echo 'Not Found !';
-}
-//}
-        ?>
-            </Table>
+    //}
+            ?>
+                </Table>
+            </div>
         </body>
 
         </html>

@@ -8,15 +8,32 @@
     box-sizing: border-box;
   }*/
 
+/*Cover page*/
+#cover-page {
+  border: 2px solid black;
+  padding: 25px;
+  background: url(upload/cover.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/*body content*/
   .content{
     position: absolute;
     top: 10%;
     left: 15%;
     width: 70%;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #f2f2f2;
     padding: 20px;
   }
+
+  #header{
+    font-size: 30px;
+}
+
+  /*button*/
 
   #signupbtn{
     position: inherit;
@@ -70,7 +87,6 @@
     background-color: yellow;
   }
   
-  
   #submitbtn {
     width: 100%;
     background-color: #1c33fdda;
@@ -101,6 +117,48 @@
     background-color: rgb(105, 27, 27);
   }
 
+  #return{
+    text-decoration: none;
+  }
+
+  #return:hover{
+    color: rgb(122, 9, 9);
+    text-decoration: underline;
+  }
+
+  #bidbtn{
+    width: 100%;
+    background-color: rgb(53, 162, 212);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #bidbtn:hover {
+    background-color: rgb(7, 135, 158);
+}
+
+#displaybtn{
+  width: 330px;
+  background-color: #f2f2f2;
+  border: none;
+  text-align: left;
+}
+
+#displaybtn:hover{
+  background-color: #f2f2f2;
+  box-shadow: 5px 5px 5px 5px gray;
+  border: 1px;
+}
+
+  #logout{
+    float: right;
+}
+
+  /*form*/
   #form {
     position: absolute;
     top: 10%;
@@ -111,59 +169,7 @@
     padding: 20px;
   }
 
-  #return{
-    text-decoration: none;
-  }
-
-  #return:hover{
-    color: rgb(122, 9, 9);
-    text-decoration: underline;
-  }
-
-  #header{
-      font-size: 30px;
-  }
-
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  li {
-    float: left;
-  }
-
-  #logout{
-      float: right;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  li a:hover {
-    background-color: #111;
-  }
-
-  #img{
-      max-width: 200px;
-      max-height: 200px;
-  }
-
-  #cover-page {
-    border: 2px solid black;
-    padding: 25px;
-    background: url(upload/cover.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+  /*table td th tr*/
 
   #table {
     font-family: Arial, Helvetica, sans-serif;
@@ -180,13 +186,61 @@
   #table tr:nth-child(even){background-color: #f2f2f2;}
   
   #table tr:hover {background-color: #ddd;}
+
+  /*ul ol li*/
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
   
-  #table th {
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover {
+    background-color: #111;
+  }
+
+/*Image*/
+
+  #img{
+      max-width: 200px;
+      max-height: 200px;
+  }
+
+  #smallimg{
+    max-height: 300px;
+    max-width: 300px;
+    min-width: 200px;
+    min-height: 200px;
+  }
+
+  #profileimgdisplay{
+    display: block;
+    width: 60%;
+    margin: 10px auto;
+    border-radius: 50%;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  #timeleft{
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #ffd104;
-    color: black;
+    color: red;
   }
 
   #imgt, #itemt, #pricet, #statust, #actiont{
@@ -210,26 +264,3 @@
     letter-spacing: 10px;
 }
 
-#bidbtn{
-    width: 100%;
-    background-color: rgb(53, 162, 212);
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  #bidbtn:hover {
-    background-color: rgb(7, 135, 158);
-}
-
-#profileimgdisplay{
-  display: block;
-  width: 60%;
-  margin: 10px auto;
-  border-radius: 50%;
-  max-width: 200px;
-  max-height: 200px;
-}
