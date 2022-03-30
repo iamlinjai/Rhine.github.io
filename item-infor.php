@@ -60,15 +60,9 @@ if (mysqli_num_rows($result) > 0) {
                     <!--Display photos-->
                     <tr>
                         <td colspan="3" id="blurred-bg">
-                            <img src="upload/car.jpg" alt="car" id="productimg"></p>
+                            <img src="<?php echo $row['item_img']; ?>" alt="<?php echo $row['item_title']; ?>" id="productimg"></p>
                         </td>
                     </tr>
-
-                    <!--
-                    <tr>
-                        <td colspan="3"><img src="upload/<?php echo $row['item_img']; ?>" alt="<?php echo $row['item_title']; ?>" id="img"></td>
-                    </tr>-->
-
 
                     <!--Display Time left / End of date-->
                     <tr>
@@ -79,8 +73,7 @@ if (mysqli_num_rows($result) > 0) {
 
                     <!--Display Item title-->
                     <tr>
-
-                        <td colspan="2" id="information-title">Mobile Phone<?php echo $row['item_title']; ?></td>
+                        <td colspan="2" id="information-title"><?php echo $row['item_title']; ?></td>
                         
                         <td rowspan="4" id="status">
                             <label>@Username</label>
@@ -96,19 +89,13 @@ if (mysqli_num_rows($result) > 0) {
                     </tr>
 
                     <tr>
-                        <td colspan="2" id="information-price">$ 100<?php echo $row['price']; ?></td>
+                        <td colspan="2" id="information-price">$ <?php echo $row['price']; ?></td>
                     </tr>
 
                     <tr>
-                        <td colspan="2">dsdsds<?php echo $row['item_desc']; ?></td>
+                        <td colspan="2"><?php echo $row['item_desc']; ?></td>
                     </tr>
-
-
-
-                    <tr>
-                        <td><?php echo $row['item_status']; ?></td>
-                    </tr>
-
+                    
             <?php
         }
     } else {
