@@ -56,9 +56,14 @@ if (mysqli_num_rows($result) > 0) {
             <div class="content">
                 <table id="table">
 
-                <!--Display photos-->
+                    <!--Display photos-->
                     <tr>
-                        <td colspan="3"><img src="upload/car.jpg" alt="car" id="img"></p>
+                        <td colspan="3">
+                            <div class="detailPhotobgimg">
+                                <div class="productimg">
+                                    <img src="upload/car.jpg" alt="car" id="productimg"></p>
+                                </div>
+                            </div>
                         </td>
                     </tr>
 

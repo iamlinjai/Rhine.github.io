@@ -227,7 +227,18 @@
 
 /*Image*/
 
-  #img{
+.detailPhotobgimg{
+  background: url(upload/cover.jpg);
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;;
+}
+
+  #productimg{
       max-width: 200px;
       max-height: 200px;
   }
@@ -307,5 +318,9 @@
 }
 
 #display-price{
+  font-weight: bold;
+}
+
+#timeleft{
   font-weight: bold;
 }
