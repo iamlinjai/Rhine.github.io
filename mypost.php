@@ -34,7 +34,7 @@ include 'connection.php';
             while ($row = mysqli_fetch_assoc($result)) {
         ?>
 
-                <a href="login.php"><button type="button" id="mypostbtn">
+                <a href="productinf-sel.php"><button type="button" id="mypostbtn">
                         <table id="selling-display">
 
                             <tr>
@@ -56,7 +56,7 @@ include 'connection.php';
                         </table>
                     </button></a>
 
-                <a href="login.php"><button type="button" id="mypostbtn">
+                <a href="purchased-infor.php"><button type="button" id="mypostbtn">
                         <table id="selling-display">
 
                             <tr>

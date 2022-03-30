@@ -21,7 +21,7 @@ include 'connection.php';
 <body>
     <div class="content">
         <br>
-        <label id="header">Bought products</label>
+        <label id="header">My Purcased</label>
         <br><br>
 
         <?php
@@ -33,7 +33,7 @@ include 'connection.php';
             while ($row = mysqli_fetch_assoc($result)) {
         ?>
 
-                <a href="bought-infor.php"><button type="button" id="displaybtn">
+                <a href="purchased-infor.php"><button type="button" id="displaybtn">
                         <table id="selling-display">
 
                             <tr>

@@ -25,7 +25,7 @@
         </li>
 
         <li>
-            <a href="mybidding.php">My Items</a>
+            <a href="purchased.php">Purchased</a>
         </li>
 
         <li>
@@ -33,7 +33,7 @@
         </li>
 
         <li id="logout">
-            <a href="logout.php">LogOut</a>
+            <a href="logout.php">Log out</a>
         </li>
 
     </ul>
