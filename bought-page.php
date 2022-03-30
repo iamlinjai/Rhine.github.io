@@ -33,7 +33,7 @@ include 'connection.php';
             while ($row = mysqli_fetch_assoc($result)) {
         ?>
 
-                <a href="bidded-infor.php"><button type="button" id="displaybtn">
+                <a href="bought-infor.php"><button type="button" id="displaybtn">
                         <table id="selling-display">
 
                             <tr>
