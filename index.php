@@ -14,14 +14,14 @@ include 'connection.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Post</title>
+    <title>Main</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="content">
         <br>
-        <label id="header">Current Auction</label>
+        <label id="header">On sales products</label>
         <br><br>
 
         <?php
@@ -34,7 +34,7 @@ include 'connection.php';
         ?>
 
 <!-----------------------------------------------------------Test Code---------------------------------------->
-                <a href="login.php"><button type="button" id="displaybtn">
+                <a href="item-infor.php"><button type="button" id="displaybtn">
                         <table id="selling-display">
 
                             <tr>
@@ -46,11 +46,11 @@ include 'connection.php';
                             </tr>
 
                             <tr>
-                                <td>house</td>
+                                <td id="display-title">house</td>
                             </tr>
 
                             <tr>
-                                <td>$ 1000</td>
+                                <td id="display-price">$ 1000</td>
                             </tr>
 
                         </table>

@@ -35,6 +35,21 @@
 
   /*button*/
 
+  #soldbtn{
+      width: 100%;
+      background-color: rgb(102, 202, 43);
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    #soldbtn:hover {
+      background-color: rgb(57, 136, 12);
+  }
+
   #mypostbtn{
       width: 330px;
       background-color: #f2f2f2;
@@ -316,6 +331,11 @@
 
 #display-price{
   font-weight: bold;
+  font-size: 18px;
+}
+
+#display-title{
+  font-size: 18px;
 }
 
 #information-price{
