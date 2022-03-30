@@ -34,7 +34,7 @@ include 'connection.php';
         ?>
 
 <!-----------------------------------------------------------Test Code---------------------------------------->
-                <a href="item-infor.php"><button type="button" id="displaybtn">
+                <a href="productinf-buy.php"><button type="button" id="displaybtn">
                         <table id="selling-display">
 
                             <tr>

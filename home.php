@@ -11,13 +11,10 @@
 
 <body>
 
-    <div id="cover-page">
-        <div id="title">
-            <label id="titletext">Online Market Place</label>
-
-            <button id="signupbtn" onclick="location.href='signup.php'">Sign Up</button>
-            <button id="loginbtn" onclick="location.href='login.php'">Sign in</button>
-        </div>
+    <div class="cover-page">
+        <p id="titletext">Online Market Place</p>
+        <button id="signupbtn" onclick="location.href='signup.php'">Sign Up</button>
+        <button id="loginbtn" onclick="location.href='login.php'">Sign in</button>
     </div>
 </body>
 
