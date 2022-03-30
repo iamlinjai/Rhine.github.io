@@ -68,21 +68,18 @@ if (isset($_POST['post'])) {
             <label for="floatingInput">End of Date</label>
         </div>
 
-        <br>
-
         <div class="form-floating">
             <textarea class="form-control" placeholder="Gives some description for your item" id="floatingTextarea2" style="height: 100px" name="item_desc"></textarea>
             <label for="floatingTextarea2">Description</label>
         </div>
 
-        <br>
+        <br><br>
 
         <div class="mb-3">
             <label for="formFile" class="form-label">Item image: </label>
             <input class="form-control" type="file" id="formFile" name="item_img" accept="image/png, image/jpeg">
         </div>
 
-        <br>
 
         <input id="submitbtn" type="submit" name="post" value="Post">
 

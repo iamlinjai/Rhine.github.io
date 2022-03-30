@@ -236,6 +236,13 @@
     max-height: 200px;
   }
 
+  #profile-img{
+    width: 400px;
+    clip-path: circle();
+    display: block;
+    margin: auto;
+  }
+
   #timeleft{
     padding-top: 12px;
     padding-bottom: 12px;
@@ -264,3 +271,7 @@
     letter-spacing: 10px;
 }
 
+#profile-userid{
+  text-align: center;
+  color: gray;
+}
