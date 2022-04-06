@@ -43,45 +43,47 @@ if (isset($_POST['post'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Post</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
-    <br>
-    <label id="header">Add Post</label>
-        <br><br>
 
     <form id="form" action="addpost.php" method="post" enctype="multipart/form-data">
-
-        <label id="itemname">Item Name:</label>
-        <br>
-        <input type="text" id="itemname" name="title" placeholder="Name of Item.." required>
+        <label id="header">Sell your items</label>
 
         <br><br>
 
-        <label id="price">Price:</label>
-        <br>
-        <input type="text" id="price" name="price" placeholder="Price..." required>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Mobile phone" name="title">
+            <label for="floatingInput">Item name</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="$ 100" name="price">
+            <label for="floatingInput">Price</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="date" class="form-control" id="floatingInput" value="DD/MM/YYYY" name="end_date">
+            <label for="floatingInput">End of Date</label>
+        </div>
+
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Gives some description for your item" id="floatingTextarea2" style="height: 100px" name="item_desc"></textarea>
+            <label for="floatingTextarea2">Description</label>
+        </div>
 
         <br><br>
 
-        <label>End of Bidding Date: </label>
-        <br>
-        <input type="date" id="date" name="end_date" value="2021-01-01">
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Item image: </label>
+            <input class="form-control" type="file" id="formFile" name="item_img" accept="image/png, image/jpeg">
+        </div>
 
-        <br><br>
-
-        <label>Gives some description for the item: </label>
-        <br>
-        <textarea name="item_desc" placeholder="Description..."></textarea>
-        <br><br>
-
-        <label>Please insert the item image: </label>
-        <br>
-        <input type="file" id="image" name="item_img" accept="image/png, image/jpeg" required>
-
-        <br><br>
 
         <input id="submitbtn" type="submit" name="post" value="Post">
+
+        <a id="return" href="index.php">Back to home page</a>
 
         <p id="forfunction"></p>
 
@@ -91,8 +93,8 @@ if (isset($_POST['post'])) {
                 document.getElementById("forfunction").innerHTML = x;
             }
         </script>
-        
-        <a id="return" href="index.php">Cancel</a>
+
+
 
     </form>
 </body>

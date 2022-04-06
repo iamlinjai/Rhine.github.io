@@ -20,13 +20,68 @@ include("connection.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
-    <br>
-    <label id="header">Profile</label>
-
     <form id="form" action="" method="POST" enctype="multipart/form-data">
+        <label id="header">MY Profile</label>
+
+        <br><br>
+
+        <img src="upload/selfie.jpg" id="profile-img">
+
+        <p id="profile-userid">#userid</p>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" value="<?php echo $row['username']; ?>" disabled>
+            <label for="floatingInput">Username</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="email" value="<?php echo $row['email']; ?>">
+            <label for="floatingInput">Email</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="pw" value="<?php echo $row['pw']; ?>">
+            <label for="floatingInput">Password</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="tel" class="form-control" id="floatingInput" placeholder="23330600" name="phone" value="23330600">
+            <label for="floatingInput">Phone number</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Hung Hum" name="address" value="Hung Hom">
+            <label for="floatingInput">Address</label>
+        </div>
+
+        <br>
+
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Change your profile image: </label>
+            <input class="form-control" type="file" id="formFile" name="item_img" accept="image/png, image/jpeg">
+        </div>
+
+        <button type="submit" name="update" id="submitbtn">Update</button></a>
+        <label><a id="return" href="index.php">Return</a></label>
+    </form>
+
+</body>
+
+</html>
+
+
+
+<!---------------------------------------------------------Backup code---------------------------------------------------------------->
+
+<!--
+<body>
+    <form id="form" action="" method="POST" enctype="multipart/form-data">
+        <label id="header">MY Profile</label>
+        <br><br>
 
         <?php
         $sql = "SELECT * FROM user where userid='{$_SESSION["userid"]}'";
@@ -35,6 +90,11 @@ include("connection.php");
         $row = mysqli_fetch_assoc($result)
 
         ?>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" value="<?php echo $row['userid']; ?>" disabled>
+            <label for="floatingInput">Username</label>
+        </div>
 
         <input type="text" name="userid" placeholder="UserID" value="<?php echo $row['userid']; ?>" disabled>
         <br><br>
@@ -56,10 +116,10 @@ include("connection.php");
         <br>
 
         <img src="upload/<?php echo $row['profile_image']; ?>" id="img">
-        
-        <input type="file" name="profile_img" id="profile_img" accept="image/png, image/jpeg" >
 
-        
+        <input type="file" name="profile_img" id="profile_img" accept="image/png, image/jpeg">
+
+
 
         <button type="submit" name="update" id="submitbtn">Update</button></a>
 
@@ -86,7 +146,5 @@ include("connection.php");
 
     </form>
 
-
 </body>
-
-</html>
+-->

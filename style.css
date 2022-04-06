@@ -1,9 +1,4 @@
-body, html {
-    height: 100%;
-    width: 100%;
-  }
-
-input[type=text], [type=password], [type=date], [type=file], textarea, select {
+/*input[type=text], [type=password], [type=date], [type=file], [type=tel], textarea, select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -11,10 +6,65 @@ input[type=text], [type=password], [type=date], [type=file], textarea, select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+  }*/
+
+/*Cover page*/
+.cover-page {
+  outline: none;
+  padding: 29em;
+  background-size: 100%;
+  background-image: url(upload/cover.jpg);
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+
+/*body content*/
+  .content{
+    position: absolute;
+    top: 10%;
+    left: 15%;
+    width: 70%;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+  #header{
+    font-size: 30px;
+}
+
+  /*button*/
+
+  #soldbtn{
+      width: 100%;
+      background-color: rgb(102, 202, 43);
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    #soldbtn:hover {
+      background-color: rgb(57, 136, 12);
+  }
+
+  #mypostbtn{
+      width: 310px;
+      background-color: #f2f2f2;
+      border: none;
+      text-align: left;
+    }
+    
+    #mypostbtn:hover{
+      background-color: #f2f2f2;
+      box-shadow: 5px 5px 5px 5px gray;
+      border: 1px;
   }
 
   #signupbtn{
-    position: inherit;
     left: 1100px;
     top: 100px;
     background-color: grey; 
@@ -65,10 +115,9 @@ input[type=text], [type=password], [type=date], [type=file], textarea, select {
     background-color: yellow;
   }
   
-  
   #submitbtn {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #1c33fdda;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -78,7 +127,7 @@ input[type=text], [type=password], [type=date], [type=file], textarea, select {
   }
   
   #submitbtn:hover {
-    background-color: #45a049;
+    background-color: #1c85fdda;
   }
 
   #cancelbtn {
@@ -95,20 +144,76 @@ input[type=text], [type=password], [type=date], [type=file], textarea, select {
   #cancelbtn:hover {
     background-color: rgb(105, 27, 27);
   }
-  
+
+  #return{
+    text-decoration: none;
+  }
+
+  #return:hover{
+    color: rgb(122, 9, 9);
+    text-decoration: underline;
+  }
+
+  #bidbtn{
+    width: 100%;
+    background-color: rgb(53, 162, 212);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #bidbtn:hover {
+    background-color: rgb(7, 135, 158);
+}
+
+#displaybtn{
+  width: 330px;
+  background-color: #f2f2f2;
+  border: none;
+  text-align: left;
+}
+
+#displaybtn:hover{
+  background-color: #f2f2f2;
+  box-shadow: 5px 5px 5px 5px gray;
+  border: 1px;
+}
+
+  #logout{
+    float: right;
+}
+
+  /*form*/
   #form {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    width: 40%;
     border-radius: 5px;
     background-color: #f2f2f2;
     padding: 20px;
   }
 
-  #return:hover{
-    color: rgb(122, 9, 9);
-  }
+  /*table td th tr*/
 
-  #header{
-      font-size: 30px;
+  #table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: none;
   }
+  
+  #table td, #table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    border: none;
+  }
+  
+
+  /*ul ol li*/
 
   ul {
     list-style-type: none;
@@ -117,15 +222,15 @@ input[type=text], [type=password], [type=date], [type=file], textarea, select {
     overflow: hidden;
     background-color: #333;
   }
+
+  #table ul{
+    background-color: #f2f2f2;
+  }
   
   li {
     float: left;
   }
 
-  #logout{
-      float: right;
-  }
-  
   li a {
     display: block;
     color: white;
@@ -133,50 +238,59 @@ input[type=text], [type=password], [type=date], [type=file], textarea, select {
     padding: 14px 16px;
     text-decoration: none;
   }
-  
+
   li a:hover {
     background-color: #111;
   }
 
-  #img{
-      max-width: 200px;
-      max-height: 200px;
-  }
+/*Image*/
 
-  #bgimg {
-    background-image: url("upload/auction.png");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+#blurred-bg{
+  background-image: url(upload/blurred.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-  #table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+  #productimg{
+      width: 300px;
+      height: 300px;
+      display: block;
+      margin: auto;
   }
-  
-  #table td, #table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
+
+
+  #smallimg{
+    max-height: 300px;
+    max-width: 300px;
+    min-width: 200px;
+    min-height: 200px;
+    display: block;
+    margin: auto;
   }
-  
-  #table tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #table tr:hover {background-color: #ddd;}
-  
-  #table th {
+
+  #profileimgdisplay{
+    display: block;
+    width: 60%;
+    margin: 10px auto;
+    border-radius: 50%;
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  #profile-img{
+    width: 400px;
+    clip-path: circle();
+    display: block;
+    margin: auto;
+  }
+
+
+  /*text*/
+  #timeleft{
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #ffd104;
-    color: black;
-  }
-
-  #imgt, #itemt, #pricet, #statust, #actiont{
-    width: 20%;
+    color: red;
   }
 
   #title{
@@ -196,27 +310,52 @@ input[type=text], [type=password], [type=date], [type=file], textarea, select {
     letter-spacing: 10px;
 }
 
-#bidbtn{
-    width: 100%;
-    background-color: rgb(53, 162, 212);
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  #bidbtn:hover {
-    background-color: rgb(7, 135, 158);
+#profile-userid{
+  text-align: center;
+  color: gray;
 }
 
-#profileimgdisplay{
-  display: block;
-  width: 60%;
-  margin: 10px auto;
-  border-radius: 50%;
-  max-width: 200px;
-  max-height: 200px;
+#selling{
+  text-align: center;
+  background-color: rgba(252, 85, 85, 0.993);
+  border-radius: 50px;
+  font-weight: bold;
 }
 
+#sold{
+  text-align: center;
+  background-color: rgba(147, 255, 85, 0.877);
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+#display-price{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#display-title{
+  font-size: 18px;
+}
+
+#information-price{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#information-title{
+  font-size: 30px;
+}
+
+#timeleft{
+  font-weight: bold;
+}
+
+#status{
+  text-align: left;
+  width: 35%;
+  background-color: #f2f2f2;
+  box-shadow: 5px 5px 5px 5px gray;
+  border: 1px;
+  border-radius: 10px;
+}

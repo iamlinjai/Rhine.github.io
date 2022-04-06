@@ -6,6 +6,6 @@ session_unset();
 
 session_destroy();
 
-header("Location: pagebflogin.php");
+header("Location: home.php");
 
 setcookie('userid', NULL, time()-3600);

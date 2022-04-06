@@ -35,29 +35,55 @@ if (isset($_POST['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signup</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
 
-    <br>
-
-    <label id="header">Sign Up</label>
-
+    <!--signup form-->
     <form id="form" method="post">
-        <input type="text" name="userid" placeholder="LoginID...">
+        <label id="header">Create an account</label>
+
+        <br><br>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid">
+            <label for="floatingInput">Username</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123@example.com" name="email">
+            <label for="floatingInput">Email</label>
+        </div>
+        
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="pw">
+            <label for="floatingInput">Password</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="repPassword">
+            <label for="floatingInput">Confirm password</label>
+        </div>
+        
+        <div class="form-floating mb-3">
+            <input type="tel" class="form-control" id="floatingInput" placeholder="23330600" name="phone">
+            <label for="floatingInput">Phone number</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Hung Hum" name="address">
+            <label for="floatingInput">Address</label>
+        </div>
+
+        <button type="submit" id="submitbtn" value="Signup">Create Account</button>
+
         <br>
 
-        <input type="text" name="email" placeholder="Email...">
-        <br>
-        <input type="text" name="username" placeholder="Nick Name...">
-        <br>
-        <input type="password" name="pw" placeholder="Password...">
-        <br>
-        <button type="submit" id="submitbtn" value="Signup">SIGN UP</button>
-        <br>
-        <a id="return" href="login.php">Alreay have a account ?</a> 
+        <label>Already signup? <a id="return" href="login.php">Sign in here</a></label>
 
     </form>
+
 </body>
 
 </html>
