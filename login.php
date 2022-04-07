@@ -55,6 +55,8 @@ if (isset($_POST['signup'])) {
 <body>
 
     <form id="form" action="" method="POST">
+        <input type="button" value="&#8592; Go back" onclick="history.back()"> 
+        <br><br>
         <label id="header">Sign in</label>
 
         <br><br>

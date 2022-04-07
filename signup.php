@@ -42,12 +42,14 @@ if (isset($_POST['login'])) {
 
     <!--signup form-->
     <form id="form" method="post">
+        <input type="button" value="&#8592; Go back" onclick="history.back()">
+        <br><br>
         <label id="header">Create an account</label>
 
         <br><br>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid">
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" required>
             <label for="floatingInput">Username</label>
         </div>
 
