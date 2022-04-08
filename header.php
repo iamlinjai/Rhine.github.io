@@ -1,3 +1,12 @@
+<?php
+
+    if(!isset($_SERVER['HTTP_REFERER'])){ //prevent user url access 
+    header('location: home.php');
+    exit;   
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

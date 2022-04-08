@@ -4,6 +4,10 @@ session_start();
 
 include 'header.php';
 include 'connection.php';
+include 'functions.php';
+
+$user_data = check_login2($connect); //User without login will redirect to login.php
+
 
 ?>
 
