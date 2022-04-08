@@ -65,5 +65,26 @@ function ran_num($length)
     return $text;
 }
 
+function image_upload($connect)
+{
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+        $image = $_FILES['image']['name'];
+        $id = $user_data['user_id'];
+
+        $target = "profile/".basename($image);
+        move_uploaded_file($_FILES['image']['tmp_name'], $target);
+
+        $query = "update users set profile_image = '$image' where userid =  $id ";
+        $result = mysqli_query($connect, $query);
+
+        if($result != 1){
+                header('Location: error.php');
+            }else{
+                header('Location: profile.php');
+            }
+    }
+}
+
 
 ?>

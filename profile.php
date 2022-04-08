@@ -1,13 +1,14 @@
 <?php
 session_start();
 
+include ("header.php");
+include ("connection.php");
+include ('functions.php');
 
-if (!isset($_SESSION["userid"])) {
-    header("Location: index.php");
-}
+$user_data = check_login($connect);
 
-include 'header.php';
-include("connection.php");
+
+
 
 ?>
 
@@ -31,30 +32,30 @@ include("connection.php");
 
         <img src="upload/selfie.jpg" id="profile-img">
 
-        <p id="profile-userid">#userid</p>
+        <p id="profile-userid"><?php  echo $user_data['userid']; ?></p> 
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" value="<?php echo $row['username']; ?>" disabled>
-            <label for="floatingInput">Username</label>
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" disabled>
+            <label for="floatingInput"><?php  echo $user_data['username']; ?></label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="email" value="<?php echo $row['email']; ?>">
-            <label for="floatingInput">Email</label>
+        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="email" disabled>
+            <label for="floatingInput"><?php  echo $user_data['email']; ?></label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="pw" value="<?php echo $row['pw']; ?>">
-            <label for="floatingInput">Password</label>
+            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="pw" value="<?php  echo $user_data['pw']; ?>" disabled>
+            <label for="floatingInput"></label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="tel" class="form-control" id="floatingInput" placeholder="23330600" name="phone" value="23330600">
+            <input type="tel" class="form-control" id="floatingInput" placeholder="23330600" name="phone" value="23330600" disabled>
             <label for="floatingInput">Phone number</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Hung Hum" name="address" value="Hung Hom">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Hung Hum" name="address" value="Hung Hom" disabled>
             <label for="floatingInput">Address</label>
         </div>
 
