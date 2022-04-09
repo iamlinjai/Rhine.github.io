@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <div class="sticky">
     <ul id="menubar">
 
         <li>
@@ -46,6 +47,7 @@
         </li>
 
     </ul>
+    </div>
 </body>
 
 </html>

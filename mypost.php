@@ -46,7 +46,7 @@ $user_data = check_login2($connect); //User without login will redirect to login
                             </tr>
 
                             <tr>
-                                <td>house</td>
+                                <td><?php echo $row['item_title']; ?></td>
                             </tr>
 
                             <tr>

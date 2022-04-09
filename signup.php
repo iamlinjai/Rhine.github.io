@@ -47,22 +47,22 @@ if (isset($_POST['login'])) {
         <br><br>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid">
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" required>
             <label for="floatingInput">Username</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123@example.com" name="email">
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123@example.com" name="email" required>
             <label for="floatingInput">Email</label>
         </div>
         
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="pw">
+            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="pw" required>
             <label for="floatingInput">Password</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="repPassword">
+            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="repPassword" required>
             <label for="floatingInput">Confirm password</label>
         </div>
         

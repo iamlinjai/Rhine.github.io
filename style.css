@@ -20,6 +20,10 @@
 
 
 /*body content*/
+  body {
+    padding-top:70px;
+  }
+
   .content{
     position: absolute;
     top: 10%;
@@ -30,9 +34,15 @@
     padding: 20px;
   }
 
+  .sticky {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+  }
+  
   #header{
     font-size: 30px;
-}
+  }
 
   /*button*/
 
