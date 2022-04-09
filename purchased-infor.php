@@ -1,6 +1,6 @@
 <?php
 
-//if(isset(isset['view'])){
+if(isset(isset['view'])){
 
 include 'connection.php';
 include 'header.php';

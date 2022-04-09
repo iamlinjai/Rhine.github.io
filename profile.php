@@ -8,8 +8,6 @@ include ('functions.php');
 $user_data = check_login($connect);
 
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -35,27 +33,27 @@ $user_data = check_login($connect);
         <p id="profile-userid"><?php  echo $user_data['userid']; ?></p> 
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" disabled>
-            <label for="floatingInput"><?php  echo $user_data['username']; ?></label>
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" value="<?php  echo $user_data['username']; ?>" disabled>
+            <label for="floatingInput">Username</label>
         </div>
 
         <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="email" disabled>
-            <label for="floatingInput"><?php  echo $user_data['email']; ?></label>
+        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="email" value="<?php  echo $user_data['email']; ?>" disabled>
+            <label for="floatingInput">Email</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="pw" value="<?php  echo $user_data['pw']; ?>" disabled>
-            <label for="floatingInput"></label>
+            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="pw" value="<?php echo password_hash($user_data['pw'], PASSWORD_DEFAULT); ?>" disabled>
+            <label for="floatingInput">Current password</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="tel" class="form-control" id="floatingInput" placeholder="23330600" name="phone" value="23330600" disabled>
+            <input type="tel" class="form-control" id="floatingInput" placeholder="23330600" name="phone" value="<?php if(is_null($user_data['phone'])){ echo "N/A";}else{echo $user_data['phone'];};?>" disabled>
             <label for="floatingInput">Phone number</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Hung Hum" name="address" value="Hung Hom" disabled>
+            <input type="text" class="form-control" id="floatingInput" placeholder="Hung Hum" name="address" value="<?php if(is_null($user_data['address'])){ echo "N/A";}else{echo $user_data['address'];};?>" disabled>
             <label for="floatingInput">Address</label>
         </div>
 
