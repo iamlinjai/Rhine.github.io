@@ -27,8 +27,8 @@ $user_data = check_login($connect);
         <label id="header">MY Profile</label>
 
         <br><br>
-
-        <img src="upload/selfie.jpg" id="profile-img">
+        <img src="<?php echo $user_data[''] ?>" id="profile-img">
+        <!--- <img src="upload/selfie.jpg" id="profile-img"> --->
 
         <p id="profile-userid"><?php  echo $user_data['userid']; ?></p> 
 
