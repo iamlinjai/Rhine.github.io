@@ -14,6 +14,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $pw3 =  $_POST['check_password'];
     $userid = $user_data['userid'];
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bf66516dbeccb65c7faaad2f9709b7ac80008ff5
     if(!empty($pw1) && !empty($pw2) && !empty($pw3))
 		{
             if($pw1 == $user_data['pw'] && $pw2 == $pw3){
@@ -32,6 +36,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
         }else{
             header("Location: change_pw.php");
+<<<<<<< HEAD
+=======
+        }
+}
+
+>>>>>>> bf66516dbeccb65c7faaad2f9709b7ac80008ff5
         }
 }
 
@@ -46,13 +56,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Change password</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
-    <form id="form" action="" method="POST" enctype="multipart/form-data">
+    <form id="form" action="" method="POST">
         <label id="header">Change Password</label>
 
         <br> <br>
@@ -63,17 +73,41 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
 
         <div class="form-floating mb-3">
+<<<<<<< HEAD
         <input type="password" class="form-control" id="floatingInput" name="password" required>
+=======
+<<<<<<< HEAD
+        <input type="password" class="form-control" id="floatingInput" name="password" required>
+=======
+        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="password" value="" required>
+>>>>>>> 9f46cfbd54f702b9607d048c43e0c42b368d2f3a
+>>>>>>> bf66516dbeccb65c7faaad2f9709b7ac80008ff5
             <label for="floatingInput">Current password</label>
         </div>
 
         <div class="form-floating mb-3">
+<<<<<<< HEAD
             <input type="password" class="form-control" id="floatingInput" name="new_password" required>
+=======
+<<<<<<< HEAD
+            <input type="password" class="form-control" id="floatingInput" name="new_password" required>
+=======
+            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="new_password" required>
+>>>>>>> 9f46cfbd54f702b9607d048c43e0c42b368d2f3a
+>>>>>>> bf66516dbeccb65c7faaad2f9709b7ac80008ff5
             <label for="floatingInput">New password</label>
         </div>
 
         <div class="form-floating mb-3">
+<<<<<<< HEAD
         <input type="password" class="form-control" id="floatingInput" name="check_password" required>
+=======
+<<<<<<< HEAD
+        <input type="password" class="form-control" id="floatingInput" name="check_password" required>
+=======
+        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="check_password" value="" required>
+>>>>>>> 9f46cfbd54f702b9607d048c43e0c42b368d2f3a
+>>>>>>> bf66516dbeccb65c7faaad2f9709b7ac80008ff5
             <label for="floatingInput">Confirm new password</label>
         </div>
 
