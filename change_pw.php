@@ -8,20 +8,31 @@ include ('functions.php');
 $user_data = check_login($connect);
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+
     $pw1 =  $_POST['password'];
     $pw2 =  $_POST['new_password'];
     $pw3 =  $_POST['check_password'];
-    if($user_data['pw'] == $pw1){
-        if($pw2 = $pw3){
-            $query = 'UPDATE user SET pw='$pw3' WHERE userid='$user_data['userid']''; //Query to update user password.
-            $result = mysql_query($query); //run query.
-            if(result == 1){
-                echo "<script>alert("password update successfull!!"); window.location='profile.php'</script>";
+    $userid = $user_data['userid'];
+
+    if(!empty($pw1) && !empty($pw2) && !empty($pw3))
+		{
+            if($pw1 == $user_data['pw'] && $pw2 == $pw3){
+                $query = "update user set pw = $pw3 where userid = $userid"; //Query to update user password.
+                $result = mysqli_query($connect, $query); //run query.
+                if(isset($result) > 0){
+                    echo "password update successfull!!";
+                    header("Location: profile.php");
+                }else{
+                    echo "Unexpectable error occured!!";
+                    header("Location: change_pw.php");
+                }
+            }else{
+                echo "You have typo when entering your password, please try again";
+                header("Location: change_pw.php");
             }
-
-
+        }else{
+            header("Location: change_pw.php");
         }
-    }
 }
 
 
@@ -47,22 +58,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <br> <br>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" value="<?php  echo $user_data['username']; ?>" disabled>
+            <input type="text" class="form-control" id="floatingInput" name="userid" value="<?php  echo $user_data['username']; ?>" disabled>
             <label for="floatingInput">Username</label>
         </div>
 
         <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="password" value="" required>
+        <input type="password" class="form-control" id="floatingInput" name="password" required>
             <label for="floatingInput">Current password</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="new_password" required>
+            <input type="password" class="form-control" id="floatingInput" name="new_password" required>
             <label for="floatingInput">New password</label>
         </div>
 
         <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="check_password" value="" required>
+        <input type="password" class="form-control" id="floatingInput" name="check_password" required>
             <label for="floatingInput">Confirm new password</label>
         </div>
 
