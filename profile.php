@@ -7,12 +7,25 @@ include ('functions.php');
 
 $user_data = check_login($connect);
 
-if (isset($_POST['post'])){
-    
-    $profile_img = $_FILES['profile_img']['name'];
-    
+if($_SERVER['REQUEST_METHOD'] == "POST"){
 
+    $image = $_FILES['profile_img']['name'];
+    $id = $user_data['userid'];
+
+    $target = "profile/".basename($image);
+    move_uploaded_file($_FILES['profile_img']['tmp_name'], $target);
+
+    $query = "update user set profile_image = '$image' where userid =  $id ";
+    $result = mysqli_query($connect, $query);
+
+    if($result != 1){
+            header('Location: error.php');
+        }else{
+            header('Location: profile.php');
+        }
 }
+
+
 
 ?>
 
@@ -33,9 +46,19 @@ if (isset($_POST['post'])){
         <label id="header">MY Profile</label>
 
         <br><br>
+        <?php
+        $sql = "SELECT * FROM user WHERE userid ='" . $_SESSION['userid'] . "'";
 
-        <img src="upload/selfie.jpg" id="profile-img">
+        $result = mysqli_query($connect, $sql);
 
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <img src="profile/<?php if(is_null($row['profile_image'])){ echo "blank.png";}else{echo $row['profile_image'];};?>" id="profile-img">
+        <?php
+            }
+        }
+        ?>
         <p id="profile-userid"><?php  echo $user_data['userid']; ?></p> 
 
         <div class="form-floating mb-3">
