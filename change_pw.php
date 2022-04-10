@@ -79,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
         <button type="submit" name="update" id="submitbtn">Update password</button>
-        <label><a id="return" href="index.php">Return</a></label>
+        <label><a id="return" href="profile.php">Return</a></label>
     </form>
 
 </body>
