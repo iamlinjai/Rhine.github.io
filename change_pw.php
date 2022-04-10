@@ -7,7 +7,22 @@ include ('functions.php');
 
 $user_data = check_login($connect);
 
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $pw1 =  $_POST['password'];
+    $pw2 =  $_POST['new_password'];
+    $pw3 =  $_POST['check_password'];
+    if($user_data['pw'] == $pw1){
+        if($pw2 = $pw3){
+            $query = 'UPDATE user SET pw='$pw3' WHERE userid='$user_data['userid']''; //Query to update user password.
+            $result = mysql_query($query); //run query.
+            if(result == 1){
+                echo "<script>alert("password update successfull!!"); window.location='profile.php'</script>";
+            }
 
+
+        }
+    }
+}
 
 
 
@@ -37,17 +52,17 @@ $user_data = check_login($connect);
         </div>
 
         <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="email" required>
+        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="password" value="" required>
             <label for="floatingInput">Current password</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="pw"  required>
+            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="new_password" required>
             <label for="floatingInput">New password</label>
         </div>
 
         <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="email" required>
+        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="check_password" value="" required>
             <label for="floatingInput">Confirm new password</label>
         </div>
 
