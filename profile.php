@@ -7,6 +7,12 @@ include ('functions.php');
 
 $user_data = check_login($connect);
 
+if (isset($_POST['post'])){
+    
+    $profile_img = $_FILES['profile_img']['name'];
+    
+
+}
 
 ?>
 
@@ -61,7 +67,7 @@ $user_data = check_login($connect);
 
         <div class="mb-3">
             <label for="formFile" class="form-label">Change your profile image: </label>
-            <input class="form-control" type="file" id="formFile" name="item_img" accept="image/png, image/jpeg">
+            <input class="form-control" type="file" id="formFile" name="profile_img" accept="image/png, image/jpeg">
         </div>
 
         <button type="submit" name="update" id="submitbtn">Update</button>
