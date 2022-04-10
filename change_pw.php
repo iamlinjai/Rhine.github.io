@@ -36,6 +36,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
 }
 
+        }
+    }
+}
+
 
 
 ?>
@@ -64,17 +68,29 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
 
         <div class="form-floating mb-3">
+<<<<<<< HEAD
         <input type="password" class="form-control" id="floatingInput" name="password" required>
+=======
+        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="password" value="" required>
+>>>>>>> 9f46cfbd54f702b9607d048c43e0c42b368d2f3a
             <label for="floatingInput">Current password</label>
         </div>
 
         <div class="form-floating mb-3">
+<<<<<<< HEAD
             <input type="password" class="form-control" id="floatingInput" name="new_password" required>
+=======
+            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="new_password" required>
+>>>>>>> 9f46cfbd54f702b9607d048c43e0c42b368d2f3a
             <label for="floatingInput">New password</label>
         </div>
 
         <div class="form-floating mb-3">
+<<<<<<< HEAD
         <input type="password" class="form-control" id="floatingInput" name="check_password" required>
+=======
+        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="check_password" value="" required>
+>>>>>>> 9f46cfbd54f702b9607d048c43e0c42b368d2f3a
             <label for="floatingInput">Confirm new password</label>
         </div>
 
