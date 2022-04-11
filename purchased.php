@@ -21,7 +21,6 @@ $user_data = check_login2($connect); //User without login will redirect to login
     <title>Auction Items</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
 </head>
 
 <body>
@@ -39,15 +38,11 @@ $user_data = check_login2($connect); //User without login will redirect to login
             while ($row = mysqli_fetch_assoc($result)) {
         ?>
 
-                <a href="purchased-infor.php"><button type="button" id="displaybtn">
+                <a href="purchased-infor.php?view=<?php echo $row['itemid']; ?>"><button type="button" id="displaybtn">
                         <table id="selling-display">
 
                             <tr>
                                 <td><img src="upload/<?php echo $row['item_img']; ?>" alt="<?php echo $row['item_title']; ?>" id="smallimg"></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
                             </tr>
 
                             <tr>

@@ -56,17 +56,17 @@ if (isset($_POST['post'])) {
         <br><br>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Mobile phone" name="title">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Mobile phone" name="title" required>
             <label for="floatingInput">Item name</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="$ 100" name="price">
+            <input type="text" class="form-control" id="floatingInput" placeholder="$ 100" name="price" required>
             <label for="floatingInput">Price</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="date" class="form-control" id="floatingInput" value="DD/MM/YYYY" name="end_date">
+            <input type="date" class="form-control" id="floatingInput" value="DD/MM/YYYY" name="end_date" required>
             <label for="floatingInput">End of Date</label>
         </div>
 
@@ -78,7 +78,7 @@ if (isset($_POST['post'])) {
         <br><br>
 
         <div class="mb-3">
-            <label for="formFile" class="form-label">Item image: </label>
+            <label for="formFile" class="form-label" >Item image: </label>
             <input class="form-control" type="file" id="formFile" name="item_img" accept="image/png, image/jpeg">
         </div>
 

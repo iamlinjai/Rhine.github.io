@@ -25,8 +25,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         }
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -93,7 +91,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <input class="form-control" type="file" id="formFile" name="profile_img" accept="image/png, image/jpeg">
         </div>
 
-        <button type="submit" name="update" id="submitbtn">Update</button>
+        <button type="submit" name="update" id="submitbtn">Update profile image</button>
         <a href="change_pw.php?view=<?php echo $user_data['userid']; ?>"><input type="button" value="Change password" id="submitbtn"></button></a>
 
         <label><a id="return" href="index.php">Return</a></label>

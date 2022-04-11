@@ -31,18 +31,17 @@ $user_data = check_login2($connect); //User without login will redirect to login
 
         <?php
         $sql = "SELECT * FROM item WHERE userid ='" . $_SESSION['userid'] . "' AND item_status = 'bidding' ";
-
         $result = mysqli_query($connect, $sql);
 
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
         ?>
 
-                <a href="productinf-sel.php"><button type="button" id="mypostbtn">
+                <a href="productinf-sel.php?view=<?php echo $row['itemid']; ?>"><button type="button" id="mypostbtn">
                         <table id="selling-display">
 
                             <tr>
-                                <td><img src="upload/<?php echo $row['item_img']; ?>" alt="<?php echo $row['item_title']; ?>" id="smallimg"></td>
+                                <td><img src="upload/<?php echo $row['item_img']; ?>" alt="<?php echo $row['item_title']; ?>" id="smallimg" width="250" height="200"></td>
                             </tr>
 
                             <tr>
@@ -54,33 +53,12 @@ $user_data = check_login2($connect); //User without login will redirect to login
                             </tr>
 
                             <tr>
-                                <td id="selling">On sales</td>
+                                <td id="<?php if($row['item_status'] == 'Bidding'){echo "selling";}else{echo "sold";} ?>"><?php if($row['item_status'] == 'Bidding'){echo "On sales";}else{echo "Sold";} ?></td>
                             </tr>
 
                         </table>
                     </button></a>
 
-                <a href="purchased-infor.php"><button type="button" id="mypostbtn">
-                        <table id="selling-display">
-
-                            <tr>
-                                <td><img src="upload/building.jpg" id="smallimg"></td>
-                            </tr>
-
-                            <tr>
-                                <td><?php echo $row['item_title']; ?></td>
-                            </tr>
-
-                            <tr>
-                                <td>$ 1000</td>
-                            </tr>
-
-                            <tr>
-                                <td id="sold">Sold</td>
-                            </tr>
-
-                        </table>
-                    </button></a>
 
         <?php
             }

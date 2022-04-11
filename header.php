@@ -20,7 +20,7 @@
 
 <body>
     <div class="sticky">
-    <ul id="menubar">
+    <ul id="menubar" class="sticky">
 
         <li>
             <a href="index.php">Home</a>
