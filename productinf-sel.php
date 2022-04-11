@@ -1,15 +1,11 @@
 <?php
 
-//if(isset(isset['view'])){
-
-include 'connection.php';
 include 'header.php';
-
+include 'connection.php';
+include 'functions.php';
 
 $itemid = $_GET['view'];
-
 $sql = "SELECT * FROM item WHERE itemid ='$itemid'";
-
 $result = mysqli_query($connect, $sql);
 
 if (mysqli_num_rows($result) > 0) {
@@ -60,7 +56,7 @@ if (mysqli_num_rows($result) > 0) {
                     <!--Display photos-->
                     <tr>
                         <td colspan="3" id="blurred-bg">
-                            <img src="upload/car.jpg" alt="car" id="productimg"></p>
+                            <img src="<?php echo  ?>" alt="" id="productimg"></p>
                         </td>
                     </tr>
 

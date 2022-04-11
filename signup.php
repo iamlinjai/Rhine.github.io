@@ -5,7 +5,7 @@ include("connection.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $userid = $_POST['userid'];
-    $username = $_POST['username'];
+    $username = $_POST['userid'];
     $password = $_POST['pw'];
     $email = $_POST['email'];
 
@@ -54,28 +54,28 @@ if (isset($_POST['login'])) {
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123@example.com" name="email">
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123@example.com" name="email" required>
             <label for="floatingInput">Email</label>
         </div>
         
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="pw">
+            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="pw" required>
             <label for="floatingInput">Password</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="repPassword">
+            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="repPassword" required>
             <label for="floatingInput">Confirm password</label>
         </div>
         
         <div class="form-floating mb-3">
             <input type="tel" class="form-control" id="floatingInput" placeholder="23330600" name="phone">
-            <label for="floatingInput">Phone number</label>
+            <label for="floatingInput">Phone number(optional)</label>
         </div>
 
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="floatingInput" placeholder="Hung Hum" name="address">
-            <label for="floatingInput">Address</label>
+            <label for="floatingInput">Address(optional)</label>
         </div>
 
         <button type="submit" id="submitbtn" value="Signup">Create Account</button>

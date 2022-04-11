@@ -1,13 +1,29 @@
 <?php
 session_start();
 
+include ("header.php");
+include ("connection.php");
+include ('functions.php');
 
-if (!isset($_SESSION["userid"])) {
-    header("Location: index.php");
+$user_data = check_login($connect);
+
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+    $image = $_FILES['profile_img']['name'];
+    $id = $user_data['userid'];
+
+    $target = "profile/".basename($image);
+    move_uploaded_file($_FILES['profile_img']['tmp_name'], $target);
+
+    $query = "update user set profile_image = '$image' where userid =  $id ";
+    $result = mysqli_query($connect, $query);
+
+    if($result != 1){
+            header('Location: error.php');
+        }else{
+            header('Location: profile.php');
+        }
 }
-
-include 'header.php';
-include("connection.php");
 
 ?>
 
@@ -28,33 +44,43 @@ include("connection.php");
         <label id="header">MY Profile</label>
 
         <br><br>
+        <?php
+        $sql = "SELECT * FROM user WHERE userid ='" . $_SESSION['userid'] . "'";
 
-        <img src="upload/selfie.jpg" id="profile-img">
+        $result = mysqli_query($connect, $sql);
 
-        <p id="profile-userid">#userid</p>
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <img src="profile/<?php if(is_null($row['profile_image'])){ echo "blank.png";}else{echo $row['profile_image'];};?>" id="profile-img">
+        <?php
+            }
+        }
+        ?>
+        <p id="profile-userid"><?php  echo $user_data['userid']; ?></p> 
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" value="<?php echo $row['username']; ?>" disabled>
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" value="<?php  echo $user_data['username']; ?>" disabled>
             <label for="floatingInput">Username</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="email" value="<?php echo $row['email']; ?>">
+        <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="email" value="<?php  echo $user_data['email']; ?>" disabled>
             <label for="floatingInput">Email</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="pw" value="<?php echo $row['pw']; ?>">
-            <label for="floatingInput">Password</label>
+            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="pw" value="<?php echo password_hash($user_data['pw'], PASSWORD_DEFAULT); ?>" disabled>
+            <label for="floatingInput">Current password</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="tel" class="form-control" id="floatingInput" placeholder="23330600" name="phone" value="23330600">
+            <input type="tel" class="form-control" id="floatingInput" placeholder="23330600" name="phone" value="<?php if(is_null($user_data['phone'])){ echo "N/A";}else{echo $user_data['phone'];};?>" disabled>
             <label for="floatingInput">Phone number</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Hung Hum" name="address" value="Hung Hom">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Hung Hum" name="address" value="<?php if(is_null($user_data['address'])){ echo "N/A";}else{echo $user_data['address'];};?>" disabled>
             <label for="floatingInput">Address</label>
         </div>
 
@@ -62,10 +88,12 @@ include("connection.php");
 
         <div class="mb-3">
             <label for="formFile" class="form-label">Change your profile image: </label>
-            <input class="form-control" type="file" id="formFile" name="item_img" accept="image/png, image/jpeg">
+            <input class="form-control" type="file" id="formFile" name="profile_img" accept="image/png, image/jpeg">
         </div>
 
-        <button type="submit" name="update" id="submitbtn">Update</button></a>
+        <button type="submit" name="update" id="submitbtn">Update profile image</button>
+        <a href="change_pw.php?view=<?php echo $user_data['userid']; ?>"><input type="button" value="Change password" id="submitbtn"></button></a>
+
         <label><a id="return" href="index.php">Return</a></label>
     </form>
 
@@ -75,76 +103,3 @@ include("connection.php");
 
 
 
-<!---------------------------------------------------------Backup code---------------------------------------------------------------->
-
-<!--
-<body>
-    <form id="form" action="" method="POST" enctype="multipart/form-data">
-        <label id="header">MY Profile</label>
-        <br><br>
-
-        <?php
-        $sql = "SELECT * FROM user where userid='{$_SESSION["userid"]}'";
-        $result = mysqli_query($connect, $sql);
-
-        $row = mysqli_fetch_assoc($result)
-
-        ?>
-
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" value="<?php echo $row['userid']; ?>" disabled>
-            <label for="floatingInput">Username</label>
-        </div>
-
-        <input type="text" name="userid" placeholder="UserID" value="<?php echo $row['userid']; ?>" disabled>
-        <br><br>
-
-        <input type="text" name="username" placeholder="Nick Name" value="<?php echo $row['username']; ?>" required>
-
-        <br><br>
-
-        <input type="text" name="email" placeholder="Email" value="<?php echo $row['email']; ?>" required>
-
-        <br><br>
-
-        <input type="password" name="pw" placeholder="Password" value="<?php echo $row['pw']; ?>" required>
-
-        <br><br>
-
-        <label>Profile Image: </label>
-
-        <br>
-
-        <img src="upload/<?php echo $row['profile_image']; ?>" id="img">
-
-        <input type="file" name="profile_img" id="profile_img" accept="image/png, image/jpeg">
-
-
-
-        <button type="submit" name="update" id="submitbtn">Update</button></a>
-
-        <?php
-        if (isset($_POST['update'])) {
-
-            $newusername = ($_POST["username"]);
-            $newpw = ($_POST["pw"]);
-            $newemail = ($_POST["email"]);
-            $newprofile_image = time() . '_' . $_FILES['profile_img']['name'];
-
-            $target = 'upload/' . $newprofile_image;
-            move_uploaded_file($_FILES['profile_img']['tmp_name'], $target);
-
-            $updatesql = "UPDATE user SET username = '$newusername', pw = '$newpw', email = '$newemail', profile_image = '$newprofile_image' WHERE userid='" . $_SESSION['userid'] . "'";
-
-            $updateresult = mysqli_query($connect, $updatesql);
-
-            header("Location: index.php");
-            die;
-        }
-
-        ?>
-
-    </form>
-
-</body>
--->

@@ -1,3 +1,12 @@
+<?php
+
+    if(!isset($_SERVER['HTTP_REFERER'])){ //prevent user url access 
+    header('location: home.php');
+    exit;   
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +19,8 @@
 </head>
 
 <body>
-    <ul id="menubar">
+    <div class="sticky">
+    <ul id="menubar" class="sticky">
 
         <li>
             <a href="index.php">Home</a>
@@ -37,6 +47,7 @@
         </li>
 
     </ul>
+    </div>
 </body>
 
 </html>
