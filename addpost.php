@@ -17,12 +17,12 @@ if (isset($_POST['post'])) {
     $end_date = $_POST['end_date'];
     $userid = $_SESSION['userid'];
     $status = '"Bidding"';
-
+    $seller = $user_data['username'];
 
     $target = "upload/" . basename($item_image);
     move_uploaded_file($_FILES['item_img']['tmp_name'], $target);
 
-    $sql = "INSERT INTO item(item_title, item_desc, item_img, price, end_date, userid, item_status) VALUES ('$item_title', '$item_desc', '$item_image', '$price', '$end_date', '$userid', $status);";
+    $sql = "INSERT INTO item(item_title, item_desc, item_img, price, end_date, userid, seller, item_status) VALUES ('$item_title', '$item_desc', '$item_image', '$price', '$end_date', '$userid', '$seller',$status);";
 
     $result = mysqli_query($connect, $sql);
 

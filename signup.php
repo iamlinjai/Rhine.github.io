@@ -2,21 +2,34 @@
 session_start();
 
 include("connection.php");
+include("functions.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $userid = $_POST['userid'];
-    $username = $_POST['userid'];
-    $password = $_POST['pw'];
+    $username = $_POST['username'];
+    $pw1 = $_POST['pw1'];
+    $pw2 = $_POST['pw2'];
     $email = $_POST['email'];
+    $address = $_POST['address'];
 
-    if (!empty($username) && !empty($password) && !is_numeric($username) && !empty($userid)) {
+    if (!empty($username) && !empty($pw1) && !empty($pw2) && !is_numeric($username) && !empty($userid)) {
+        if($pw1 == $pw2){   //check the input passwords are the same.
 
-        $sql = "INSERT INTO user(userid, username, pw, email) VALUES ('$userid', '$username', '$password', '$email');";
+            $sql = "INSERT INTO user(userid, username, pw, address ,email) VALUES ('$userid', '$username', '$password', '$address' ,'$email');";
+            $result = mysqli_query($connect, $sql);
 
-        $result = mysqli_query($connect, $sql);
+            if($result != 1){
+                echo "unexpaectable error occured!";
+            }else{
+                header("Location: login.php");
+                die;
+            }
+        }else{
+            echo "Invalid input, please try again.";
+            die;
+        }
 
-        header("Location: login.php");
-        die;
+        
     }
 }
 
@@ -42,8 +55,7 @@ if (isset($_POST['login'])) {
 
     <!--signup form-->
     <form id="form" method="post">
-        <input type="button" value="&#8592; Go back" onclick="history.back()">
-        <br><br>
+
         <label id="header">Create an account</label>
 
         <br><br>
@@ -54,17 +66,17 @@ if (isset($_POST['login'])) {
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123@example.com" name="email" required>
+            <input type="email" class="form-control" id="floatingInput" placeholder="abc123@example.com" name="email" required>
             <label for="floatingInput">Email</label>
         </div>
         
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="pw" required>
+            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="pw1" required>
             <label for="floatingInput">Password</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="repPassword" required>
+            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="pw2" required>
             <label for="floatingInput">Confirm password</label>
         </div>
         
@@ -83,6 +95,9 @@ if (isset($_POST['login'])) {
         <br>
 
         <label>Already signup? <a id="return" href="login.php">Sign in here</a></label>
+        <br><br>
+        <label><a id="return" href="home.php">Return</a></label>
+        
 
     </form>
 
