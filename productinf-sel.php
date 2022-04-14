@@ -17,8 +17,15 @@ function changestatus($status, $id, $connect){
 
 
 
-function updatebuyer($price, $buyerid){
-		
+function updatebuyer($offer_price, $id, $connect, $buyer_id){
+    $item_price = mysqli_query($connect, "SELECT price FROM item WHERE itemid ='$itemid'");
+    if($offer_price > $item_price){
+        $sql = "UPDATE item SET price = '$offerprice' buyerid = '$buyer_id' WHERE itemid ='$id'";
+        $result = mysqli_query($connect, $sql);
+    }else{
+        $sql = "UPDATE item SET buyerid = '$buyer_id' WHERE itemid ='$id'";
+        $result = mysqli_query($connect, $sql);
+    }
 	}
 
 
@@ -34,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         die();
     }
     elseif(isset($_POST['buy'])){
-        changestatus($_POST['buy']);
+        updatebuyer($_POST['offerprice'], $itemid, $connect, $_SESSION['userid']);
 
 
     }
@@ -123,9 +130,9 @@ if (mysqli_num_rows($result) > 0) {
                                     <div class="form-group mx-sm-3">
                                         <label for="offerprice" class="sr-only">Make an offer here.</label>
                                         <br>
-                                        <input type="text" class="form-control"  name="offerprice"  placeholder="$HKD">
+                                        <input type="number" class="form-control"  name="offerprice"  placeholder="$HKD">
                                         <br>
-                                        <input type="submit" class="btn btn-primary" id="soldbtn" value="buy" name="buy ">
+                                        <input type="submit" class="btn btn-primary" id="soldbtn" value="buy" name="buy">
                                     </div>                           
                                 </form>
 

@@ -9,7 +9,7 @@
 	$user_data = check_login($connect); //User without login will redirect to login.php
 
 	function getmails($connect){
-			$sql = "SELECT * FROM mail WHERE receiverid = '" . $_SESSION['userid'] . "'";
+			$sql = "SELECT * FROM mail WHERE receiverid = '" . $_SESSION['userid'] . "' ORDER BY datetime DESC";
 			$result = mysqli_query($connect, $sql);
 			return mysqli_fetch_all($result);
 		}
@@ -41,17 +41,17 @@
 						<div class="card-header">
 						From: 
 					<?php	
-						if($mail[0][1] == 0)
+						if($mail[$i][1] == 0)
 							echo "System"; ?>							
 						<br>
-						Date: <?php echo $mail[0][5]; ?>	
+						Date: <?php echo $mail[$i][5]; ?>	
 						<br>					
 						Content: 
 						</div>
 					<div class="card-body">
-						<p class="card-text"><?php echo $mail[0][3]; ?></p>
+						<p class="card-text"><?php echo $mail[$i][3]; ?></p>
 						<br>
-						 <a href='productinf-sel.php?view=<?php echo $mail[0][4]; ?>' class="btn btn-primary">Go Item page</a>
+						 <a href='productinf-sel.php?view=<?php echo $mail[$i][4]; ?>' class="btn btn-primary">Go Item page</a>
 					</div>	
 					<br>	
 					</div>
