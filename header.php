@@ -42,8 +42,13 @@
             <a href="profile.php">Profile</a>
         </li>
 
+<<<<<<< HEAD
 		<li>
             <a href="mailbox.php">Mail Box</a>
+=======
+        <li>
+            <a href="mailbox.php">Mailbox</a>
+>>>>>>> b3f6c0a7d33db62749e5b19c5b6edca70bc8e7c7
         </li>
 
         <li id="logout">

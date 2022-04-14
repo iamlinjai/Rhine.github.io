@@ -75,12 +75,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         </div>
 
         <div class="form-floating mb-3">
-            <input type="tel" class="form-control" id="floatingInput" placeholder="23330600" name="phone" value="<?php if(is_null($user_data['phone'])){ echo "N/A";}else{echo $user_data['phone'];};?>" disabled>
+            <input type="tel" class="form-control" id="floatingInput" placeholder="23330600" name="phone" value="<?php if($user_data['phone'] == 0){ echo "N/A";}else{echo $user_data['phone'];};?>" disabled>
             <label for="floatingInput">Phone number</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Hung Hum" name="address" value="<?php if(is_null($user_data['address'])){ echo "N/A";}else{echo $user_data['address'];};?>" disabled>
+            <input type="text" class="form-control" id="floatingInput" placeholder="Hung Hum" name="address" value="<?php echo $user_data['address']; ?>" disabled>
             <label for="floatingInput">Address</label>
         </div>
 
@@ -93,6 +93,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
         <button type="submit" name="update" id="submitbtn">Update profile image</button>
         <a href="change_pw.php?view=<?php echo $user_data['userid']; ?>"><input type="button" value="Change password" id="submitbtn"></button></a>
+        <a href="change_pna.php?view=<?php echo $user_data['userid']; ?>"><input type="button" value="Change phone number and address" id="submitbtn"></button></a>
 
         <label><a id="return" href="index.php">Return</a></label>
     </form>

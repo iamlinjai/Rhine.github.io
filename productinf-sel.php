@@ -10,8 +10,11 @@ $itemid = intval($_GET['view']);
 $sql = "SELECT * FROM item WHERE itemid ='$itemid'";
 $result = mysqli_query($connect, $sql);
 
+<<<<<<< HEAD
 $row =  mysqli_fetch_assoc($result);
 
+=======
+>>>>>>> b3f6c0a7d33db62749e5b19c5b6edca70bc8e7c7
 function changestatus($status, $id, $connect){
     $sql = "UPDATE item SET item_status = '$status' WHERE itemid = '$id'";
     $result = mysqli_query($connect, $sql);
@@ -20,13 +23,18 @@ function changestatus($status, $id, $connect){
 
 
 function updatebuyer($offer_price, $id, $connect, $buyer_id){
+<<<<<<< HEAD
     /*/$item_price = mysqli_query($connect, "SELECT price FROM item WHERE itemid ='$itemid'");
+=======
+    $item_price = mysqli_query($connect, "SELECT price FROM item WHERE itemid ='$itemid'");
+>>>>>>> b3f6c0a7d33db62749e5b19c5b6edca70bc8e7c7
     if($offer_price > $item_price){
         $sql = "UPDATE item SET price = '$offerprice' buyerid = '$buyer_id' WHERE itemid ='$id'";
         $result = mysqli_query($connect, $sql);
     }else{
         $sql = "UPDATE item SET buyerid = '$buyer_id' WHERE itemid ='$id'";
         $result = mysqli_query($connect, $sql);
+<<<<<<< HEAD
     }/*/
 		$sql = "UPDATE item SET buyer_id = '$buyer_id' WHERE itemid = '$id'";
 		mysqli_query($connect, $sql);
@@ -60,15 +68,23 @@ function getusername($userid,$connect){
 		$row =  mysqli_fetch_assoc($result);
 		return $row;
 }
+=======
+    }
+	}
+
+>>>>>>> b3f6c0a7d33db62749e5b19c5b6edca70bc8e7c7
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if(isset($_POST['sold'])){
         changestatus($_POST['sold'], $itemid, $connect);
+<<<<<<< HEAD
 		$msg = '';
 		$msg = 'Cheers! Your item already sold for $ ' . $row["price"] . '! <br>Please check the item for more detail. ';
 		sendmsg($itemid, $connect, $row['userid'], $msg);
 		$msg = 'Congret! You successfully bid the item for $ ' . $row["price"] . '! <br>Please check the item for more detail.';
 		sendmsg($itemid, $connect, $row['buyer_id'], $msg);		 
+=======
+>>>>>>> b3f6c0a7d33db62749e5b19c5b6edca70bc8e7c7
         header("location: mypost.php");
         die();
     }
@@ -78,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         die();
     }
     elseif(isset($_POST['buy'])){
+<<<<<<< HEAD
 		if($_POST['offerprice'] > $row['price']){
 			$msg = '';			
 			updatebuyer($_POST['offerprice'], $itemid, $connect, $_SESSION['userid']);
@@ -91,6 +108,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 if (mysqli_num_rows($result) > 0) {
     //while ($row = mysqli_fetch_assoc($result)) {
+=======
+        updatebuyer($_POST['offerprice'], $itemid, $connect, $_SESSION['userid']);
+
+
+    }
+    
+}
+
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+>>>>>>> b3f6c0a7d33db62749e5b19c5b6edca70bc8e7c7
 ?>
 
 <!DOCTYPE html>
@@ -103,10 +131,14 @@ if (mysqli_num_rows($result) > 0) {
         <title>Product Details</title>
         <link rel="stylesheet" href="style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<<<<<<< HEAD
 	</head>
 	<style>
 		p {text-indent: 180px;}
 	</style>
+=======
+    </head>
+>>>>>>> b3f6c0a7d33db62749e5b19c5b6edca70bc8e7c7
 
     <script>
         var countDownDate = new Date("<?php echo $row['end_date']; ?>").getTime();
@@ -162,11 +194,16 @@ if (mysqli_num_rows($result) > 0) {
                             <br><br>
 	
 							<?php 
+<<<<<<< HEAD
 							if(($_SESSION['userid'] == $row['userid'] and $row['buyer_id'] != 0) and !strcmp($row['item_status'],'Bidding')){ ?>
+=======
+							if($_SESSION['userid'] == $row['userid']){ ?>
+>>>>>>> b3f6c0a7d33db62749e5b19c5b6edca70bc8e7c7
                                <form class="form-group" method = "POST">
                                     <button type="submit" id="soldbtn" name="sold" value="sold">Change to sold </button>
                                     <button type="submit" id="cancelbtn" name="delete" value="delete">Delete Post </button>
                                 </form>
+<<<<<<< HEAD
 								<?php
 								if($row['userid'] == 0) ?>
 									
@@ -191,6 +228,21 @@ if (mysqli_num_rows($result) > 0) {
                                     </div>                           
                                 </form>
 
+=======
+							<?php
+							}else{ ?>
+
+                                <form class="form-group" method = "POST">
+                                    <div class="form-group mx-sm-3">
+                                        <label for="offerprice" class="sr-only">Make an offer here.</label>
+                                        <br>
+                                        <input type="number" class="form-control"  name="offerprice"  placeholder="$HKD">
+                                        <br>
+                                        <input type="submit" class="btn btn-primary" id="soldbtn" value="buy" name="buy">
+                                    </div>                           
+                                </form>
+
+>>>>>>> b3f6c0a7d33db62749e5b19c5b6edca70bc8e7c7
                                 <?php
                             }
 							?>
@@ -238,8 +290,13 @@ if (mysqli_num_rows($result) > 0) {
     }
     //}
             ?>
+<<<<<<< HEAD
             
         
+=======
+            </Table>
+        </div>
+>>>>>>> b3f6c0a7d33db62749e5b19c5b6edca70bc8e7c7
     </body>
 
 </html>
