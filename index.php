@@ -1,12 +1,18 @@
 <?php
 
-session_start();
+	session_start();
 
-include("header.php");
-include 'connection.php';
-include 'functions.php';
+	include("header.php");
+	include 'connection.php';
+	include 'functions.php';
 
-$user_data = check_login($connect);
+	$user_data = check_login($connect);
+
+	function getitems($connect){
+		$sql = "SELECT * FROM item WHERE userid !='" . $_SESSION['userid'] . "' AND item_status = 'Bidding' ";
+		$result = mysqli_query($connect, $sql);
+		return mysqli_fetch_all($result);
+	}
 
 ?>
 
@@ -25,97 +31,36 @@ $user_data = check_login($connect);
 <body>
     <div class="content">
         <br>
-        <label id="header">On sales products</label>
+        <label id="header">Recent upload products</label>
         <br><br>
-
-        <?php
-        $sql = "SELECT * FROM item WHERE userid !='" . $_SESSION['userid'] . "' AND item_status = 'Bidding' ";
-
-        $result = mysqli_query($connect, $sql);
-
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-        ?>
-
-<!-----------------------------------------------------------Test Code---------------------------------------->
-                <a href="productinf-buy.php"><button type="button" id="displaybtn">
-                        <table id="selling-display">
-
-                            <tr>
-                                <td><img src="upload/building.jpg" id="smallimg"></td>
-                            </tr>
-
-                            <tr>
-                                <td></td>
-                            </tr>
-
-                            <tr>
-                                <td id="display-title">house</td>
-                            </tr>
-
-                            <tr>
-                                <td id="display-price">$ 1000</td>
-                            </tr>
-
-                        </table>
-                    </button></a>
-
-        <?php
-            }
-        }
-        ?>
+		
+		<div class="row row-cols-1 row-cols-md-3 g-4">
+			<?php 
+				$items = getitems($connect);				
+				if(!empty($items)){
+					for($i = 0; $i < count($items); $i++){ ?>
+						<a href="productinf-sel.php?view=<?php echo $items[$i][4]; ?>">
+							<button type="button" id= <?php echo $items[$i][4]; ?>>
+								<div class='col'>
+									<div class='card'>
+										<img class="card-img-top rounded" style="width: 300px; height: 300px;" src= ".\upload\<?php echo $items[$i][3]; ?>">
+										<div class="card-body">
+											<h5 class="card-title"><?php echo $items[$i][0]; ?></h5>
+											<p class="card-text">											
+												$<?php echo $items[$i][2]; ?><br>
+												Seller: <?php echo $items[$i][9]; ?><br>
+												End: <?php echo $items[$i][5]; ?><br>
+											</p>
+										</div>
+									</div>
+								</div>										
+							</button>
+						</a>			
+						
+			<?php	} 
+				}?>
+		</div>
     </div>
 </body>
 
 </html>
-
-
-<!------------------------------------------------------------------------Back Up Code-------------------------------------------------------------------------------->
-
-<!--
-<?php
-$sql = "SELECT * FROM item WHERE userid !='" . $_SESSION['userid'] . "' AND item_status = 'Bidding' ";
-
-$result = mysqli_query($connect, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-    while ($row = mysqli_fetch_assoc($result)) {
-?>
-
-                <table id="table" style="width: 100%;">
-                    <tr>
-                        <td id="imgt"><img src="upload/<?php echo $row['item_img']; ?>" alt="<?php echo $row['item_title']; ?>" id="img"></td>
-                        <td id="itemt"><?php echo $row['item_title']; ?></td>
-                        <td id="pricet">$ <?php echo $row['price']; ?></td>
-                        <td id="statust"><?php echo $row['item_status']; ?></td>
-                        <td id="actiont">
-                            <a href="item-infor.php?view=<?php echo $row['itemid'] ?>"><button type="button" id="submitbtn">View</button></a>
-                            <br><br>
-                            <form method="POST" action="">
-                                <input type="text" name="newprice" placeholder="Bid Price.." required>
-                                <button type="submit" name="bidprice" id="bidbtn">Bid Now</button></a>
-                                <?php
-                                if (isset($_POST['bidprice'])) {
-                                    $newprice = $_POST['newprice'];
-
-                                    if ($newprice > $row['price']) {
-
-                                        $updatesql = "UPDATE item SET price = '$newprice', buyer_id = '" . $_SESSION['userid'] . "' WHERE itemid = '" . $row['itemid'] . "'";
-                                        $updateresult = mysqli_query($connect, $updatesql);
-
-                                        header('Location: index.php');
-                                        die;
-                                    }
-                                }
-
-                                ?>
-                            </form>
-                        </td>
-                    </tr>
-                </table>
-
-        <?php
-    }
-}
-        ?>
--->

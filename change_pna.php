@@ -10,32 +10,36 @@ $user_data = check_login($connect);
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $pn =  $_POST['phone'];
+    $pn_length = strlen((string)$pn);
     $addr =  $_POST['address'];
+    $userid = $user_data['userid'];
     
-    if(!empty($pn) && !empty($pw2))
-
-    if(!empty($pw1) && !empty($pw2) && !empty($pw3))
-		{
-            if($pw1 == $user_data['pw'] && $pw2 == $pw3){
-                $query = "update user set pw = $pw3 where userid = $userid"; //Query to update user password.
-                $result = mysqli_query($connect, $query); //run query.
-                if(isset($result) > 0){
-                    echo "password update successfull!!";
-                    header("Location: profile.php");
-                }else{
-                    echo "Unexpectable error occured!!";
-                    header("Location: change_pw.php");
-                }
-            }else{
-                echo "You have typo when entering your password, please try again";
-                header("Location: change_pw.php");
-            }
+    if(!empty($pn)){
+        if(!is_numeric($pn) && $pn_length != 8){
+            echo "Please enter a valid value";
         }else{
-            header("Location: change_pw.php");
+            $query1 = "update user set phone = $pn where userid = $userid";
+            $result1 = mysqli_query($connect, $query1);
         }
+    }
+    
+    if(!empty($addr)){
+        if(!preg_match('/^(?:\\d+ [a-zA-Z ]+, ){2}[a-zA-Z ]+$/', $addr)){
+            echo "Please enter address in a valid format.";
+        }else{
+            $query2 = "update user set address = $addr where userid = $userid";
+            $result2 = mysqli_query($connect, $query2);}        
+    }
+
+    if(isset($result1) > 0 && isset($result2) > 0){
+        echo "Information update successful!!";
+    }elseif(empty($pn) && isset($result2) > 0){
+        echo "Address upadate successful!!";
+    }elseif(isset($result1) > 0 && empty($addr)){
+        echo "Phone number update successful!!";
+    }
+
 }
-
-
 
 ?>
 
@@ -63,16 +67,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
 
         <div class="form-floating mb-3">
-        <input type="password" class="form-control" id="floatingInput" name="phone" required>
-            <label for="floatingInput">New phone number</label>
+        <input type="number" class="form-control" id="floatingInput" name="phone" >
+            <label for="floatingInput">hone number</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" name="address" required>
+            <input type="text" class="form-control" id="floatingInput" name="address" >
             <label for="floatingInput">New address</label>
         </div>
 
-        <button type="submit" name="update" id="submitbtn">Update password</button>
+        <button type="submit" name="update" id="submitbtn">Update information</button>
         <label><a id="return" href="profile.php">Return</a></label>
     </form>
 
