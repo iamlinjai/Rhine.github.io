@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         die();
     }
     elseif(isset($_POST['delete'])){
-        changestatus($_POST['delete'], $itemid);
+        changestatus($_POST['delete'], $itemid, $connect);
         header('Location: mypost.php');
         die();
     }
@@ -114,7 +114,7 @@ if (mysqli_num_rows($result) > 0) {
 							if($_SESSION['userid'] == $row['userid']){ ?>
                                <form class="form-group" method = "POST">
                                     <button type="submit" id="soldbtn" name="sold" value="sold">Change to sold </button>
-                                    <button type="submit" id="cancelbtn" name="deleted" value="delete">Delete Post </button>
+                                    <button type="submit" id="cancelbtn" name="delete" value="delete">Delete Post </button>
                                 </form>
 							<?php
 							}else{ ?>
