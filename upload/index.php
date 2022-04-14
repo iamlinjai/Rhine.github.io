@@ -33,33 +33,49 @@
         <br>
         <label id="header">Recent upload products</label>
         <br><br>
-		
-		<div class="row row-cols-1 row-cols-md-3 g-4">
-			<?php 
-				$items = getitems($connect);				
-				if(!empty($items)){
-					for($i = 0; $i < count($items); $i++){ ?>
+
+		<?php 
+			$items = getitems($connect);				
+			if(!empty($items)){
+				for($i = 0; $i < count($items); $i++){ ?>
+					
+					<div class='col'>
+						<div class='card'>
+							<img src= ".\upload\<?php echo $items[$i][3]; ?>">
+							<div class="card-body">
+							
+							</div>
+							
 						<a href="productinf-sel.php?view=<?php echo $items[$i][4]; ?>">
 							<button type="button" id= <?php echo $items[$i][4]; ?>>
-								<div class='col'>
-									<div class='card'>
-										<img class="card-img-top rounded" style="width: 300px; height: 300px;" src= ".\upload\<?php echo $items[$i][3]; ?>">
-										<div class="card-body">
-											<h5 class="card-title"><?php echo $items[$i][0]; ?></h5>
-											<p class="card-text">											
-												$<?php echo $items[$i][2]; ?><br>
-												Seller: <?php echo $items[$i][9]; ?><br>
-												End: <?php echo $items[$i][5]; ?><br>
-											</p>
-										</div>
-									</div>
-								</div>										
+								<table id="selling-display">
+									<tr>
+										<td><img src= ".\upload\<?php echo $items[$i][3]; ?>" id="smallimg"></td>
+									</tr>
+							
+									<tr>
+										<td id="display-title"><b><?php echo $items[$i][0]; ?></b></td>
+									</tr>
+
+									<tr>
+										<td id="display-price">$<?php echo $items[$i][2]; ?></td>
+									</tr>
+									
+									<tr>
+										<td>Seller: <?php echo $items[$i][9]; ?></td>
+									</tr>
+									
+									<tr>
+										<td>End: <?php echo $items[$i][5]; ?></td>
+									</tr>
+								</table>
 							</button>
 						</a>			
-						
-			<?php	} 
-				}?>
-		</div>
+					
+		<?php	} 
+			}?>
+
+
     </div>
 </body>
 

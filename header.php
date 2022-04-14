@@ -42,9 +42,15 @@
             <a href="profile.php">Profile</a>
         </li>
 
+		<li>
+            <a href="mailbox.php">Mail Box</a>
+        </li>
+
         <li id="logout">
             <a href="logout.php">Log out</a>
         </li>
+		
+		
 
     </ul>
     </div>

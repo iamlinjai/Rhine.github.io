@@ -5,7 +5,6 @@ include("connection.php");
 include("functions.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $userid = $_POST['userid'];
     $username = $_POST['username'];
     $pw1 = $_POST['pw1'];
     $pw2 = $_POST['pw2'];
@@ -15,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (!empty($username) && !empty($pw1) && !empty($pw2) && !is_numeric($username) && !empty($userid)) {
         if($pw1 == $pw2){   //check the input passwords are the same.
 
-            $sql = "INSERT INTO user(userid, username, pw, address ,email) VALUES ('$userid', '$username', '$password', '$address' ,'$email');";
+            $sql = "INSERT INTO user(username, pw, address ,email) VALUES ( '$username', '$pw1', '$address' ,'$email');";
             $result = mysqli_query($connect, $sql);
 
             if($result != 1){
@@ -61,32 +60,32 @@ if (isset($_POST['login'])) {
         <br><br>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid" required>
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="username" required>
             <label for="floatingInput">Username</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="abc123@example.com" name="email" required>
+            <input type="email" class="form-control" id="floatingInput" placeholder="abc123" name="email" required>
             <label for="floatingInput">Email</label>
         </div>
         
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="pw1" required>
+            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="pw1" required>
             <label for="floatingInput">Password</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="*********" name="pw2" required>
+            <input type="password" class="form-control" id="floatingInput" placeholder="abc123" name="pw2" required>
             <label for="floatingInput">Confirm password</label>
         </div>
         
         <div class="form-floating mb-3">
-            <input type="tel" class="form-control" id="floatingInput" placeholder="23330600" name="phone">
-            <label for="floatingInput">Phone number(optional)</label>
+            <input type="tel" class="form-control" id="floatingInput" placeholder="abc123" name="phone" required>
+            <label for="floatingInput">Phone number(required)</label>
         </div>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Hung Hum" name="address">
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="address">
             <label for="floatingInput">Address(optional)</label>
         </div>
 

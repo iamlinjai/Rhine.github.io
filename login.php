@@ -3,16 +3,18 @@ session_start();
 
 include("connection.php");
 
+
 if (isset($_POST['submit'])) {
 
-    $userid = $_POST['userid'];
+	$userid = $_POST['username'];
     $password = $_POST['pw'];
 
-    if (!empty($userid) && !empty($password) && is_numeric($userid)) {
+    if (!empty($userid) && !empty($password)) {
 
-        $sql = "SELECT * FROM user WHERE userid = '$userid' limit 1";
+        $sql = "SELECT * FROM user WHERE username = '$userid' limit 1";
 
         $result = mysqli_query($connect, $sql);
+		
 
         if ($result) {
 
@@ -62,7 +64,7 @@ if (isset($_POST['signup'])) {
         <br><br>
 
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="userid">
+            <input type="text" class="form-control" id="floatingInput" placeholder="abc123" name="username">
             <label for="floatingInput">Login ID</label>
         </div>
 

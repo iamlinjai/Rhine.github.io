@@ -30,7 +30,7 @@ $user_data = check_login2($connect); //User without login will redirect to login
         <br><br>
 
         <?php
-        $sql = "SELECT * FROM item WHERE buyer_id ='" . $_SESSION['userid'] . "' AND item_status = 'Completed'";
+        $sql = "SELECT * FROM item WHERE buyer_id ='" . $_SESSION['userid'] . "' AND item_status = 'sold'";
 
         $result = mysqli_query($connect, $sql);
 
@@ -38,7 +38,7 @@ $user_data = check_login2($connect); //User without login will redirect to login
             while ($row = mysqli_fetch_assoc($result)) {
         ?>
 
-                <a href="purchased-infor.php?view=<?php echo $row['itemid']; ?>"><button type="button" id="displaybtn">
+                <a href="productinf-sel.php?view=<?php echo $row['itemid']; ?>"><button type="button" id="displaybtn">
                         <table id="selling-display">
 
                             <tr>
