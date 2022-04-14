@@ -30,7 +30,7 @@ $user_data = check_login2($connect); //User without login will redirect to login
         <br><br>
 
         <?php
-        $sql = "SELECT * FROM item WHERE userid ='" . $_SESSION['userid'] . "' AND item_status = 'bidding' ";
+        $sql = "SELECT * FROM item WHERE userid ='" . $_SESSION['userid'] . "' AND (item_status = 'bidding' OR item_status = 'sold')";
         $result = mysqli_query($connect, $sql);
 
         if (mysqli_num_rows($result) > 0) {
